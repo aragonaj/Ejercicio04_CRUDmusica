@@ -70,8 +70,12 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasId"] = new SelectList(_context.Artistas, "Id", "Id", funcionesArtista.ArtistasId);
-            ViewData["FuncionesId"] = new SelectList(_context.Funciones, "Id", "Id", funcionesArtista.FuncionesId);
+            ViewData["ArtistasId"] = new SelectList(_context.Artistas,
+                "Id", "Nombre", funcionesArtista.ArtistasId);
+            ViewData["FuncionesId"] = new SelectList(_context.Funciones,
+                "Id", "Nombre", funcionesArtista.FuncionesId);
+            //ViewData["ArtistasId"] = new SelectList(_context.Artistas, "Id", "Id", funcionesArtista.ArtistasId);
+            //ViewData["FuncionesId"] = new SelectList(_context.Funciones, "Id", "Id", funcionesArtista.FuncionesId);
             return View(funcionesArtista);
         }
 
@@ -88,8 +92,12 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistasId"] = new SelectList(_context.Artistas, "Id", "Id", funcionesArtista.ArtistasId);
-            ViewData["FuncionesId"] = new SelectList(_context.Funciones, "Id", "Id", funcionesArtista.FuncionesId);
+            ViewData["ArtistasId"] = new SelectList(_context.Artistas,
+                "Id", "Nombre", funcionesArtista.ArtistasId);
+            ViewData["FuncionesId"] = new SelectList(_context.Funciones,
+                "Id", "Nombre", funcionesArtista.FuncionesId);
+            //ViewData["ArtistasId"] = new SelectList(_context.Artistas, "Id", "Id", funcionesArtista.ArtistasId);
+            //ViewData["FuncionesId"] = new SelectList(_context.Funciones, "Id", "Id", funcionesArtista.FuncionesId);
             return View(funcionesArtista);
         }
 
@@ -125,8 +133,12 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistasId"] = new SelectList(_context.Artistas, "Id", "Id", funcionesArtista.ArtistasId);
-            ViewData["FuncionesId"] = new SelectList(_context.Funciones, "Id", "Id", funcionesArtista.FuncionesId);
+            ViewData["ArtistasId"] = new SelectList(_context.Artistas,
+                "Id", "Nombre", funcionesArtista.ArtistasId);
+            ViewData["FuncionesId"] = new SelectList(_context.Funciones,
+                "Id", "Nombre", funcionesArtista.FuncionesId);
+            //ViewData["ArtistasId"] = new SelectList(_context.Artistas, "Id", "Id", funcionesArtista.ArtistasId);
+            //ViewData["FuncionesId"] = new SelectList(_context.Funciones, "Id", "Id", funcionesArtista.FuncionesId);
             return View(funcionesArtista);
         }
 

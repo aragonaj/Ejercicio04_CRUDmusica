@@ -46,13 +46,13 @@
                 @Html.DisplayFor(modelItem => item.FechaCreacion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ciudades.Id)
+                @Html.DisplayFor(modelItem => item.Ciudades.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Generos.Id)
+                @Html.DisplayFor(modelItem => item.Generos.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Representantes.Id)
+                @Html.DisplayFor(modelItem => item.Representantes.NombreCompleto)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

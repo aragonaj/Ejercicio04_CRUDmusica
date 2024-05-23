@@ -70,8 +70,12 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
-            ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.CiudadesId);
+            ViewData["GirasId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.GirasId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
+            //ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
             return View(concierto);
         }
 
@@ -88,8 +92,12 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
-            ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.CiudadesId);
+            ViewData["GirasId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.GirasId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
+            //ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
             return View(concierto);
         }
 
@@ -125,8 +133,12 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
-            ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.CiudadesId);
+            ViewData["GirasId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.GirasId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
+            //ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
             return View(concierto);
         }
 

@@ -66,7 +66,9 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CancionesId"] = new SelectList(_context.Canciones, "Id", "Id", videoClip.CancionesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Canciones,
+                "Id", "Titulo", videoClip.CancionesId);
+            //ViewData["CancionesId"] = new SelectList(_context.Canciones, "Id", "Id", videoClip.CancionesId);
             return View(videoClip);
         }
 
@@ -83,7 +85,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["CancionesId"] = new SelectList(_context.Canciones, "Id", "Id", videoClip.CancionesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Canciones,
+                "Id", "Titulo", videoClip.CancionesId);
+            //ViewData["CancionesId"] = new SelectList(_context.Canciones, "Id", "Id", videoClip.CancionesId);
             return View(videoClip);
         }
 
@@ -119,7 +123,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CancionesId"] = new SelectList(_context.Canciones, "Id", "Id", videoClip.CancionesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Canciones,
+                "Id", "Titulo", videoClip.CancionesId);
+            //ViewData["CancionesId"] = new SelectList(_context.Canciones, "Id", "Id", videoClip.CancionesId);
             return View(videoClip);
         }
 

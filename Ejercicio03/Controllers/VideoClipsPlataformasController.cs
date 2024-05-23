@@ -70,8 +70,12 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlataformasId"] = new SelectList(_context.Plataformas, "Id", "Id", videoClipsPlataforma.PlataformasId);
-            ViewData["VideoClipsId"] = new SelectList(_context.VideoClips, "Id", "Id", videoClipsPlataforma.VideoClipsId);
+            ViewData["PlataformasId"] = new SelectList(_context.Plataformas,
+                "Id", "Nombre", videoClipsPlataforma.PlataformasId);
+            ViewData["VideoClipsId"] = new SelectList(_context.VideoClips,
+                "Id", "Id", videoClipsPlataforma.VideoClipsId); //"Canciones"
+            //ViewData["PlataformasId"] = new SelectList(_context.Plataformas, "Id", "Id", videoClipsPlataforma.PlataformasId);
+            //ViewData["VideoClipsId"] = new SelectList(_context.VideoClips, "Id", "Id", videoClipsPlataforma.VideoClipsId);
             return View(videoClipsPlataforma);
         }
 
@@ -88,8 +92,12 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["PlataformasId"] = new SelectList(_context.Plataformas, "Id", "Id", videoClipsPlataforma.PlataformasId);
-            ViewData["VideoClipsId"] = new SelectList(_context.VideoClips, "Id", "Id", videoClipsPlataforma.VideoClipsId);
+            ViewData["PlataformasId"] = new SelectList(_context.Plataformas,
+                "Id", "Nombre", videoClipsPlataforma.PlataformasId);
+            ViewData["VideoClipsId"] = new SelectList(_context.VideoClips,
+                "Id", "Id", videoClipsPlataforma.VideoClipsId); //"Canciones"
+            //ViewData["PlataformasId"] = new SelectList(_context.Plataformas, "Id", "Id", videoClipsPlataforma.PlataformasId);
+            //ViewData["VideoClipsId"] = new SelectList(_context.VideoClips, "Id", "Id", videoClipsPlataforma.VideoClipsId);
             return View(videoClipsPlataforma);
         }
 
@@ -125,8 +133,12 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlataformasId"] = new SelectList(_context.Plataformas, "Id", "Id", videoClipsPlataforma.PlataformasId);
-            ViewData["VideoClipsId"] = new SelectList(_context.VideoClips, "Id", "Id", videoClipsPlataforma.VideoClipsId);
+            ViewData["PlataformasId"] = new SelectList(_context.Plataformas,
+                "Id", "Nombre", videoClipsPlataforma.PlataformasId);
+            ViewData["VideoClipsId"] = new SelectList(_context.VideoClips,
+                "Id", "Id", videoClipsPlataforma.VideoClipsId); //"Canciones"
+            //ViewData["PlataformasId"] = new SelectList(_context.Plataformas, "Id", "Id", videoClipsPlataforma.PlataformasId);
+            //ViewData["VideoClipsId"] = new SelectList(_context.VideoClips, "Id", "Id", videoClipsPlataforma.VideoClipsId);
             return View(videoClipsPlataforma);
         }
 

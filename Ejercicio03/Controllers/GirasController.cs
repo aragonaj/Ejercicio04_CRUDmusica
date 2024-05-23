@@ -66,7 +66,9 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", gira.GruposId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", gira.GruposId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", gira.GruposId);
             return View(gira);
         }
 
@@ -83,7 +85,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", gira.GruposId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", gira.GruposId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", gira.GruposId);
             return View(gira);
         }
 
@@ -119,7 +123,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", gira.GruposId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", gira.GruposId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", gira.GruposId);
             return View(gira);
         }
 

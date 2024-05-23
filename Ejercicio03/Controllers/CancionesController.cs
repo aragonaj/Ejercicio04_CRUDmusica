@@ -47,7 +47,9 @@ namespace Ejercicio03.Controllers
         // GET: Canciones/Create
         public IActionResult Create()
         {
-            ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id");
+            ViewData["AlbumesId"] = new SelectList(_context.Albumes,
+                "Id", "Nombre");
+            //ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id");
             return View();
         }
 
@@ -64,7 +66,9 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id", cancione.AlbumesId);
+            ViewData["AlbumesId"] = new SelectList(_context.Albumes,
+                "Id", "Nombre", cancione.AlbumesId);
+            //ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id", cancione.AlbumesId);
             return View(cancione);
         }
 
@@ -81,7 +85,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id", cancione.AlbumesId);
+            ViewData["AlbumesId"] = new SelectList(_context.Albumes,
+                "Id", "Nombre", cancione.AlbumesId);
+            //ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id", cancione.AlbumesId);
             return View(cancione);
         }
 
@@ -117,7 +123,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id", cancione.AlbumesId);
+            ViewData["AlbumesId"] = new SelectList(_context.Albumes,
+                 "Id", "Nombre", cancione.AlbumesId);
+            //ViewData["AlbumesId"] = new SelectList(_context.Albumes, "Id", "Id", cancione.AlbumesId);
             return View(cancione);
         }
 

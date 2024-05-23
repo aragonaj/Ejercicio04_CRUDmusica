@@ -47,7 +47,9 @@ namespace Ejercicio03.Controllers
         // GET: Empleadoes/Create
         public IActionResult Create()
         {
-            ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id");
+            ViewData["RolesId"] = new SelectList(_context.Roles,
+                "Id", "Descripcion");
+            //ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id");
             return View();
         }
 
@@ -83,7 +85,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
+            ViewData["RolesId"] = new SelectList(_context.Roles,
+                "Id", "Descripcion", empleado.RolesId);
+            //ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
             return View(empleado);
         }
 
@@ -119,7 +123,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
+            ViewData["RolesId"] = new SelectList(_context.Roles,
+                "Id", "Descripcion", empleado.RolesId);
+            //ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
             return View(empleado);
         }
 

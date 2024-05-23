@@ -66,7 +66,9 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", representante.CiudadesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", representante.CiudadesId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", representante.CiudadesId);
             return View(representante);
         }
 
@@ -83,7 +85,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", representante.CiudadesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", representante.CiudadesId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", representante.CiudadesId);
             return View(representante);
         }
 
@@ -119,7 +123,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", representante.CiudadesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", representante.CiudadesId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", representante.CiudadesId);
             return View(representante);
         }
 

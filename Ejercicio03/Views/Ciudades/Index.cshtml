@@ -13,10 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @* @Html.DisplayNameFor(model => model.Nombre) *@
+                <a 
+                    asp-action="Index" 
+                    asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Nombre)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Paises)
+                @* @Html.DisplayNameFor(model => model.Paises) *@
+                <a 
+                    asp-action="Index" 
+                    asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Paises)</a>
             </th>
             <th></th>
         </tr>
@@ -28,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Paises.Id)
+                    @Html.DisplayFor(modelItem => item.Paises.Nombre)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
