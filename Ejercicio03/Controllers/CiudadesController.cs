@@ -32,7 +32,7 @@ namespace Ejercicio03.Controllers
                     ciudades = ciudades.OrderByDescending(ciudad => ciudad.Nombre);
                     break;
                 case "Paises":
-                    ciudades = ciudades.OrderBy(ciudad => ciudad.Paises);
+                    ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
                     break;
                 case "Paises_desc":
                     ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
@@ -43,7 +43,8 @@ namespace Ejercicio03.Controllers
             }
             //var grupoBContext = _context.Ciudades.Include(c => c.Paises);
             //return View(await grupoBContext.ToListAsync());
-            return View(await ciudades.AsNoTracking().ToListAsync());
+            return View(await ciudades.ToListAsync());
+            //return View(await ciudades.AsNoTracking().ToListAsync());
         }
 
         // GET: Ciudades/Details/5
