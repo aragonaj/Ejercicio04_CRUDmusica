@@ -40,19 +40,19 @@ namespace Ejercicio03.Controllers
                     artistas = artistas.OrderByDescending(artista => artista.GenerosId);
                     break;
                 case "FechaDeNacimiento":
-                    artistas = artistas.OrderByDescending(artista => artista.FechaDeNacimiento);
+                    artistas = artistas.OrderBy(artista => artista.FechaDeNacimiento);
                     break;
                 case "FechaDeNacimiento_desc":
                     artistas = artistas.OrderByDescending(artista => artista.FechaDeNacimiento);
                     break;
                 case "CiudadesId":
-                    artistas = artistas.OrderByDescending(artista => artista.CiudadesId);
+                    artistas = artistas.OrderBy(artista => artista.CiudadesId);
                     break;
                 case "CiudadesId_desc":
                     artistas = artistas.OrderByDescending(artista => artista.CiudadesId);
                     break;
                 case "GruposId":
-                    artistas = artistas.OrderByDescending(artista => artista.GruposId);
+                    artistas = artistas.OrderBy(artista => artista.GruposId);
                     break;
                 case "GruposId_desc":
                     artistas = artistas.OrderByDescending(artista => artista.GruposId);

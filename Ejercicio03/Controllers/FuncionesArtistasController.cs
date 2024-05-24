@@ -27,17 +27,17 @@ namespace Ejercicio03.Controllers
                              select funcion;
             switch (sortOrder)
             {
-                case "Fecha":
-                    funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Fecha);
-                    break;
                 case "Artistas":
+                    funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
+                    break;
+                case "Funciones":
                     funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
                     break;
                 case "Funciones_desc":
                     funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
                     break;
                 default:
-                    funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Fecha);
+                    funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
                     break;
             }
             return View(await funcionesArtistas.AsNoTracking().ToListAsync());

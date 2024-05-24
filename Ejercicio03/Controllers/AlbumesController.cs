@@ -33,13 +33,13 @@ namespace Ejercicio03.Controllers
                     albumes = albumes.OrderByDescending(album => album.Nombre);
                     break;
                 case "GenerosId":
-                    albumes = albumes.OrderByDescending(album => album.GenerosId);
+                    albumes = albumes.OrderBy(album => album.GenerosId);
                     break;
                 case "GenerosId_desc":
                     albumes = albumes.OrderByDescending(album => album.GenerosId);
                     break;
                 case "GruposId":
-                    albumes = albumes.OrderByDescending(album => album.GruposId);
+                    albumes = albumes.OrderBy(album => album.GruposId);
                     break;
                 case "GruposId_desc":
                     albumes = albumes.OrderByDescending(album => album.GruposId);

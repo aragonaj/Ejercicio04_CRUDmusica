@@ -39,13 +39,13 @@ namespace Ejercicio03.Controllers
                     conciertos = conciertos.OrderByDescending(concierto => concierto.Direccion);
                     break;
                 case "Ciudades":
-                    conciertos = conciertos.OrderByDescending(concierto => concierto.Ciudades);
+                    conciertos = conciertos.OrderBy(concierto => concierto.Ciudades);
                     break;
                 case "Ciudades_desc":
                     conciertos = conciertos.OrderByDescending(concierto => concierto.Ciudades);
                     break;
                 case "Giras":
-                    conciertos = conciertos.OrderByDescending(concierto => concierto.Giras);
+                    conciertos = conciertos.OrderBy(concierto => concierto.Giras);
                     break;
                 case "Giras_desc":
                     conciertos = conciertos.OrderByDescending(concierto => concierto.Giras);

@@ -39,13 +39,13 @@ namespace Ejercicio03.Controllers
                     canciones = canciones.OrderByDescending(cancion => cancion.Duracion);
                     break;
                 case "Single":
-                    canciones = canciones.OrderByDescending(cancion => cancion.Single);
+                    canciones = canciones.OrderBy(cancion => cancion.Single);
                     break;
                 case "Single_desc":
                     canciones = canciones.OrderByDescending(cancion => cancion.Single);
                     break;
                 case "Albumes":
-                    canciones = canciones.OrderByDescending(cancion => cancion.Albumes);
+                    canciones = canciones.OrderBy(cancion => cancion.Albumes);
                     break;
                 case "Albumes_desc":
                     canciones = canciones.OrderByDescending(cancion => cancion.Albumes);

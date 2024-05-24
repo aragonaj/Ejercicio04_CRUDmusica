@@ -39,13 +39,13 @@ namespace Ejercicio03.Controllers
                     giras = giras.OrderByDescending(gira => gira.FechaInicio);
                     break;
                 case "FechaFin":
-                    giras = giras.OrderByDescending(gira => gira.FechaFin);
+                    giras = giras.OrderBy(gira => gira.FechaFin);
                     break;
                 case "FechaFin_desc":
                     giras = giras.OrderByDescending(gira => gira.FechaFin);
                     break;
                 case "Grupos":
-                    giras = giras.OrderByDescending(gira => gira.Grupos);
+                    giras = giras.OrderBy(gira => gira.Grupos);
                     break;
                 case "Grupos_desc":
                     giras = giras.OrderByDescending(gira => gira.Grupos);

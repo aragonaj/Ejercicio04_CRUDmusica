@@ -42,25 +42,25 @@ namespace Ejercicio03.Controllers
                     grupos = grupos.OrderByDescending(grupo => grupo.Grupo1);
                     break;
                 case "FechaCreacion":
-                    grupos = grupos.OrderByDescending(grupo => grupo.FechaCreacion);
+                    grupos = grupos.OrderBy(grupo => grupo.FechaCreacion);
                     break;
                 case "FechaCreacion_desc":
                     grupos = grupos.OrderByDescending(grupo => grupo.FechaCreacion);
                     break;
                 case "Ciudades":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Ciudades);
+                    grupos = grupos.OrderBy(grupo => grupo.Ciudades);
                     break;
                 case "Ciudades_desc":
                     grupos = grupos.OrderByDescending(grupo => grupo.Ciudades);
                     break;
                 case "Generos":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Generos);
+                    grupos = grupos.OrderBy(grupo => grupo.Generos);
                     break;
                 case "Generos_desc":
                     grupos = grupos.OrderByDescending(grupo => grupo.Generos);
                     break;
                 case "Representantes":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Representantes);
+                    grupos = grupos.OrderBy(grupo => grupo.Representantes);
                     break;
                 case "Representantes_desc":
                     grupos = grupos.OrderByDescending(grupo => grupo.Representantes);
