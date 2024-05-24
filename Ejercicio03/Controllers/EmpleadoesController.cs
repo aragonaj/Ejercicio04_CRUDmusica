@@ -22,12 +22,19 @@ namespace Ejercicio03.Controllers
         public async Task<IActionResult> Index(string sortOrder)
         {
             ViewData["NombreCompleto"] = String.IsNullOrEmpty(sortOrder) ? "NombreCompleto" : "";
+            ViewData["Roles"] = sortOrder == "Roles" ? "Roles_desc" : "Roles";
             var empleados = from empleado in _context.Empleados
                              select empleado;
             switch (sortOrder)
             {
                 case "NombreCompleto":
                     empleados = empleados.OrderByDescending(empleado => empleado.NombreCompleto);
+                    break;
+                case "Roles":
+                    empleados = empleados.OrderByDescending(empleado => empleado.Roles);
+                    break;
+                case "Roles_desc":
+                    empleados = empleados.OrderByDescending(empleado => empleado.Roles);
                     break;
                 default:
                     empleados = empleados.OrderBy(concierto => concierto.NombreCompleto);

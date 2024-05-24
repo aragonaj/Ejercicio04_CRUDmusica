@@ -23,6 +23,7 @@ namespace Ejercicio03.Controllers
         public async Task<IActionResult> Index(string sortOrder)
         {
             ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            ViewData["Fecha"] = sortOrder == "Fecha" ? "Fecha_desc" : "Fecha";
             ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
             ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
             var albumes = from album in _context.Albumes
@@ -31,6 +32,12 @@ namespace Ejercicio03.Controllers
             {
                 case "Nombre":
                     albumes = albumes.OrderByDescending(album => album.Nombre);
+                    break;
+                case "Fecha":
+                    albumes = albumes.OrderBy(album => album.Fecha);
+                    break;
+                case "Fecha_desc":
+                    albumes = albumes.OrderByDescending(album => album.Fecha);
                     break;
                 case "GenerosId":
                     albumes = albumes.OrderBy(album => album.GenerosId);

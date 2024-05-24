@@ -21,7 +21,7 @@ namespace Ejercicio03.Controllers
         // GET: Funciones
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
             var funciones = from funcion in _context.Funciones
                            select funcion;
             switch (sortOrder)

@@ -13,16 +13,24 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @* @Html.DisplayNameFor(model => model.Nombre) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Nombre"]">@Html.DisplayNameFor(model => model.Nombre)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaInicio)
+                @* @Html.DisplayNameFor(model => model.FechaInicio) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["FechaInicio"]">@Html.DisplayNameFor(model => model.FechaInicio)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaFin)
+                @* @Html.DisplayNameFor(model => model.FechaFin) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["FechaFin"]">@Html.DisplayNameFor(model => model.FechaFin)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Grupos)
+                @* @Html.DisplayNameFor(model => model.Grupos) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Grupos"]">@Html.DisplayNameFor(model => model.Grupos)</a>
             </th>
             <th></th>
         </tr>

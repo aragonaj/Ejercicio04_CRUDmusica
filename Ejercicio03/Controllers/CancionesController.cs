@@ -29,7 +29,7 @@ namespace Ejercicio03.Controllers
                            select cancion;
             switch (sortOrder)
             {
-                case "Nombre":
+                case "Titulo":
                     canciones = canciones.OrderByDescending(cancion => cancion.Titulo);
                     break;
                 case "Duracion":

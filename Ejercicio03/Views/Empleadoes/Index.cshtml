@@ -13,10 +13,14 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreCompleto)
+                @* @Html.DisplayNameFor(model => model.NombreCompleto) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NombreCompleto"]">@Html.DisplayNameFor(model => model.NombreCompleto)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Roles)
+                @* @Html.DisplayNameFor(model => model.Roles) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Roles"]">@Html.DisplayNameFor(model => model.Roles)</a>
             </th>
             <th></th>
         </tr>
