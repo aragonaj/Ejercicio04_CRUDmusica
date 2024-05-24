@@ -23,8 +23,8 @@ namespace Ejercicio03.Controllers
         {
             ViewData["Artistas"] = String.IsNullOrEmpty(sortOrder) ? "Artistas" : "";
             ViewData["Funciones"] = sortOrder == "Funciones" ? "Funciones_desc" : "Funciones";
-            var funcionesArtistas = from funcion in _context.FuncionesArtistas
-                             select funcion;
+            var funcionesArtistas = from funcion in _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones)
+                                    select funcion;
             switch (sortOrder)
             {
                 case "Artistas":

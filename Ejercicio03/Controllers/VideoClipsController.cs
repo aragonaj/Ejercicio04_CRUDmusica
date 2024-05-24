@@ -23,7 +23,7 @@ namespace Ejercicio03.Controllers
         {
             ViewData["Fecha"] = String.IsNullOrEmpty(sortOrder) ? "Fecha" : "";
             ViewData["Canciones"] = sortOrder == "Canciones" ? "Canciones_desc" : "Canciones";
-            var videoclips = from videoclip in _context.VideoClips
+            var videoclips = from videoclip in _context.VideoClips.Include(v => v.Canciones)
                              select videoclip;
             switch (sortOrder)
             {

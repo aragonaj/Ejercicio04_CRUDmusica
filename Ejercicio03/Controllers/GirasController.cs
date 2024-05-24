@@ -25,8 +25,8 @@ namespace Ejercicio03.Controllers
             ViewData["FechaInicio"] = sortOrder == "FechaInicio" ? "FechaInicio_desc" : "FechaInicio";
             ViewData["FechaFin"] = sortOrder == "FechaFin" ? "FechaFin_desc" : "FechaFin";
             ViewData["Grupos"] = sortOrder == "Grupos" ? "Grupos_desc" : "Grupos";
-            var giras = from gira in _context.Giras
-                             select gira;
+            var giras = from gira in _context.Giras.Include(g => g.Grupos)
+                        select gira;
             switch (sortOrder)
             {
                 case "Nombre":

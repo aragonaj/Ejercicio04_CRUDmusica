@@ -19,7 +19,7 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Artistas
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
             ViewData["FechaDeNacimiento"] = sortOrder == "FechaDeNacimiento" ? "FechaDeNacimiento_desc" : "FechaDeNacimiento";
@@ -28,6 +28,7 @@ namespace Ejercicio03.Controllers
             ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
             var artistas = from artista in _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos)
                            select artista;
+
             switch (sortOrder)
             {
                 case "Nombre":
@@ -61,6 +62,7 @@ namespace Ejercicio03.Controllers
                     artistas = artistas.OrderBy(artista => artista.Nombre);
                     break;
             }
+            
             return View(await artistas.AsNoTracking().ToListAsync());
             //var grupoBContext = _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos);
             //return View(await grupoBContext.ToListAsync());

@@ -23,8 +23,8 @@ namespace Ejercicio03.Controllers
         {
             ViewData["Plataformas"] = String.IsNullOrEmpty(sortOrder) ? "Plataforma" : "";
             ViewData["VideoClips"] = sortOrder == "VideoClips" ? "VideoClips_desc" : "VideoClips";
-            var videoclipsPlataformas = from videoclipPlataformas in _context.VideoClipsPlataformas
-                             select videoclipPlataformas;
+            var videoclipsPlataformas = from videoclipPlataformas in _context.VideoClipsPlataformas.Include(v => v.Plataformas).Include(v => v.VideoClips)
+                                        select videoclipPlataformas;
             switch (sortOrder)
             {
                 case "Fecha":

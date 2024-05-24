@@ -28,8 +28,8 @@ namespace Ejercicio03.Controllers
             ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
             ViewData["Generos"] = sortOrder == "Generos" ? "Generos_desc" : "Generos";
             ViewData["Representantes"] = sortOrder == "Representantes" ? "Representantes_desc" : "Representantes";
-            var grupos = from grupo in _context.Grupos
-                             select grupo;
+            var grupos = from grupo in _context.Grupos.Include(g => g.Ciudades).Include(g => g.Generos).Include(g => g.Representantes)
+                         select grupo;
             switch (sortOrder)
             {
                 case "Nombre":

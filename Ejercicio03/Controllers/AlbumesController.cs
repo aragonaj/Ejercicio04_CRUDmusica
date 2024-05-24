@@ -26,7 +26,7 @@ namespace Ejercicio03.Controllers
             ViewData["Fecha"] = sortOrder == "Fecha" ? "Fecha_desc" : "Fecha";
             ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
             ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
-            var albumes = from album in _context.Albumes.Include(album => album.Generos).Include(album => album.Grupos)
+            var albumes = from album in _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos)
                           select album;
             switch (sortOrder)
             {

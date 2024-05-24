@@ -27,8 +27,8 @@ namespace Ejercicio03.Controllers
             ViewData["Mail"] = sortOrder == "Mail" ? "Mail_desc" : "Mail";
             ViewData["Telefono"] = sortOrder == "Telefono" ? "Telefono_desc" : "Telefono";
             ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
-            var representantes = from representante in _context.Representantes
-                             select representante;
+            var representantes = from representante in _context.Representantes.Include(r => r.Ciudades)
+                                 select representante;
             switch (sortOrder)
             {
                 case "NombreCompleto":

@@ -25,8 +25,8 @@ namespace Ejercicio03.Controllers
             ViewData["Direccion"] = sortOrder == "Direccion" ? "Direccion_desc" : "Direccion";
             ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
             ViewData["Giras"] = sortOrder == "Giras" ? "Giras_desc" : "Giras";
-            var conciertos = from concierto in _context.Conciertos
-                            select concierto;
+            var conciertos = from concierto in _context.Conciertos.Include(c => c.Ciudades).Include(c => c.Giras)
+                             select concierto;
             switch (sortOrder)
             {
                 case "Fecha":
