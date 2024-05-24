@@ -19,10 +19,44 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Giras
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            var grupoBContext = _context.Giras.Include(g => g.Grupos);
-            return View(await grupoBContext.ToListAsync());
+            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            ViewData["FechaInicio"] = sortOrder == "FechaInicio" ? "FechaInicio_desc" : "FechaInicio";
+            ViewData["FechaFin"] = sortOrder == "FechaFin" ? "FechaFin_desc" : "FechaFin";
+            ViewData["Grupos"] = sortOrder == "Grupos" ? "Grupos_desc" : "Grupos";
+            var giras = from gira in _context.Giras
+                             select gira;
+            switch (sortOrder)
+            {
+                case "Nombre":
+                    giras = giras.OrderByDescending(gira => gira.Nombre);
+                    break;
+                case "FechaInicio":
+                    giras = giras.OrderBy(gira => gira.FechaInicio);
+                    break;
+                case "FechaInicio_desc":
+                    giras = giras.OrderByDescending(gira => gira.FechaInicio);
+                    break;
+                case "FechaFin":
+                    giras = giras.OrderByDescending(gira => gira.FechaFin);
+                    break;
+                case "FechaFin_desc":
+                    giras = giras.OrderByDescending(gira => gira.FechaFin);
+                    break;
+                case "Grupos":
+                    giras = giras.OrderByDescending(gira => gira.Grupos);
+                    break;
+                case "Grupos_desc":
+                    giras = giras.OrderByDescending(gira => gira.Grupos);
+                    break;
+                default:
+                    giras = giras.OrderBy(gira => gira.Nombre);
+                    break;
+            }
+            return View(await giras.AsNoTracking().ToListAsync());
+            //var grupoBContext = _context.Giras.Include(g => g.Grupos);
+            //return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Giras/Details/5

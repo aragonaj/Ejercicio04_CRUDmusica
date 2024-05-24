@@ -2,6 +2,10 @@
 //--use-Database-name
 //--force
 
+//[ModelMetadataType(Typeof(NombreModelo))]
+//public partial class NombreModelo
+//se copia el documento NombreModelo
+
 using Microsoft.EntityFrameworkCore.Storage;
 
 using Microsoft.EntityFrameworkCore;

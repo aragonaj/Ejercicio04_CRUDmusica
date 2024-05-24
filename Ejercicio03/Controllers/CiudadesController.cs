@@ -22,8 +22,8 @@ namespace Ejercicio03.Controllers
         // GET: Ciudades
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["NameSortParm"] = sortOrder == "Paises" ? "Paises_desc" : "Paises";
+            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            ViewData["Paises"] = sortOrder == "Paises" ? "Paises_desc" : "Paises";
             var ciudades = from ciudad in _context.Ciudades
                            select ciudad;
             switch (sortOrder)
@@ -32,7 +32,7 @@ namespace Ejercicio03.Controllers
                     ciudades = ciudades.OrderByDescending(ciudad => ciudad.Nombre);
                     break;
                 case "Paises":
-                    ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
+                    ciudades = ciudades.OrderBy(ciudad => ciudad.Paises);
                     break;
                 case "Paises_desc":
                     ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
@@ -43,8 +43,8 @@ namespace Ejercicio03.Controllers
             }
             //var grupoBContext = _context.Ciudades.Include(c => c.Paises);
             //return View(await grupoBContext.ToListAsync());
-            return View(await ciudades.ToListAsync());
-            //return View(await ciudades.AsNoTracking().ToListAsync());
+            //return View(await ciudades.ToListAsync());
+            return View(await ciudades.AsNoTracking().ToListAsync());
         }
 
         // GET: Ciudades/Details/5

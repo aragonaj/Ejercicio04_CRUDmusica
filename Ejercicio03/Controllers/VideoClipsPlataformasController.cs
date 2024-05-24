@@ -19,7 +19,7 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: VideoClipsPlataformas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
             var grupoBContext = _context.VideoClipsPlataformas.Include(v => v.Plataformas).Include(v => v.VideoClips);
             return View(await grupoBContext.ToListAsync());

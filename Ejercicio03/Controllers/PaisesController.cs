@@ -19,7 +19,7 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Paises
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
             return View(await _context.Paises.ToListAsync());
         }

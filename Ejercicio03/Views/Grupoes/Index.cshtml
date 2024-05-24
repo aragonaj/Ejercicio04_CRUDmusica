@@ -13,22 +13,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+               @*  @Html.DisplayNameFor(model => model.Nombre) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Nombre)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Grupo1)
+                @* @Html.DisplayNameFor(model => model.Grupo1) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Grupo1)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaCreacion)
+                @* @Html.DisplayNameFor(model => model.FechaCreacion) *@
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.FechaCreacion)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ciudades)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Ciudades)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Generos)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Generos)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Representantes)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Representantes)</a> *@
             </th>
             <th></th>
         </tr>

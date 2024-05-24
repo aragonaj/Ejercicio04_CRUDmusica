@@ -19,10 +19,23 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Empleadoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            var grupoBContext = _context.Empleados.Include(e => e.Roles);
-            return View(await grupoBContext.ToListAsync());
+            ViewData["NombreCompleto"] = String.IsNullOrEmpty(sortOrder) ? "NombreCompleto" : "";
+            var empleados = from empleado in _context.Empleados
+                             select empleado;
+            switch (sortOrder)
+            {
+                case "NombreCompleto":
+                    empleados = empleados.OrderByDescending(empleado => empleado.NombreCompleto);
+                    break;
+                default:
+                    empleados = empleados.OrderBy(concierto => concierto.NombreCompleto);
+                    break;
+            }
+            return View(await empleados.AsNoTracking().ToListAsync());
+            //var grupoBContext = _context.Empleados.Include(e => e.Roles);
+            //return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Empleadoes/Details/5

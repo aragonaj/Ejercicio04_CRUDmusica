@@ -19,7 +19,7 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Representantes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
             var grupoBContext = _context.Representantes.Include(r => r.Ciudades);
             return View(await grupoBContext.ToListAsync());

@@ -19,10 +19,30 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: FuncionesArtistas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            var grupoBContext = _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones);
-            return View(await grupoBContext.ToListAsync());
+            ViewData["Artistas"] = String.IsNullOrEmpty(sortOrder) ? "Artistas" : "";
+            ViewData["Funciones"] = sortOrder == "Funciones" ? "Funciones_desc" : "Funciones";
+            var funcionesArtistas = from funcion in _context.FuncionesArtistas
+                             select funcion;
+            switch (sortOrder)
+            {
+                case "Fecha":
+                    funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Fecha);
+                    break;
+                case "Artistas":
+                    funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
+                    break;
+                case "Funciones_desc":
+                    funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
+                    break;
+                default:
+                    funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Fecha);
+                    break;
+            }
+            return View(await funcionesArtistas.AsNoTracking().ToListAsync());
+            //var grupoBContext = _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones);
+            //return View(await grupoBContext.ToListAsync());
         }
 
         // GET: FuncionesArtistas/Details/5

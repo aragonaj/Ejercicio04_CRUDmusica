@@ -23,8 +23,8 @@ namespace Ejercicio03.Controllers
         public async Task<IActionResult> Index(string sortOrder)
         {
             ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["GenerosId"] = String.IsNullOrEmpty(sortOrder) ? "GenerosId" : "";
-            ViewData["GruposId"] = String.IsNullOrEmpty(sortOrder) ? "GruposId" : "";
+            ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
+            ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
             var albumes = from album in _context.Albumes
                            select album;
             switch (sortOrder)
@@ -32,8 +32,17 @@ namespace Ejercicio03.Controllers
                 case "Nombre":
                     albumes = albumes.OrderByDescending(album => album.Nombre);
                     break;
-                case "PaisesId":
+                case "GenerosId":
                     albumes = albumes.OrderByDescending(album => album.GenerosId);
+                    break;
+                case "GenerosId_desc":
+                    albumes = albumes.OrderByDescending(album => album.GenerosId);
+                    break;
+                case "GruposId":
+                    albumes = albumes.OrderByDescending(album => album.GruposId);
+                    break;
+                case "GruposId_desc":
+                    albumes = albumes.OrderByDescending(album => album.GruposId);
                     break;
                 default:
                     albumes = albumes.OrderBy(album => album.Nombre);
