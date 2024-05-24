@@ -24,7 +24,7 @@ namespace Ejercicio03.Controllers
         {
             ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
             ViewData["Paises"] = sortOrder == "Paises" ? "Paises_desc" : "Paises";
-            var ciudades = from ciudad in _context.Ciudades
+            var ciudades = from ciudad in _context.Ciudades.Include(c => c.Paises)
                            select ciudad;
             switch (sortOrder)
             {

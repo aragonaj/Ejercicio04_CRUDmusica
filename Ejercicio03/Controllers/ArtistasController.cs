@@ -22,22 +22,16 @@ namespace Ejercicio03.Controllers
         public async Task<IActionResult> Index(string sortOrder)
         {
             ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
             ViewData["FechaDeNacimiento"] = sortOrder == "FechaDeNacimiento" ? "FechaDeNacimiento_desc" : "FechaDeNacimiento";
             ViewData["CiudadesId"] = sortOrder == "CiudadesId" ? "CiudadesId_desc" : "CiudadesId";
+            ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
             ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
-            var artistas = from artista in _context.Artistas
+            var artistas = from artista in _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos)
                            select artista;
             switch (sortOrder)
             {
                 case "Nombre":
                     artistas = artistas.OrderByDescending(artista => artista.Nombre);
-                    break;
-                case "GenerosId":
-                    artistas = artistas.OrderBy(artista => artista.GenerosId);
-                    break;
-                case "GenerosId_desc":
-                    artistas = artistas.OrderByDescending(artista => artista.GenerosId);
                     break;
                 case "FechaDeNacimiento":
                     artistas = artistas.OrderBy(artista => artista.FechaDeNacimiento);
@@ -50,6 +44,12 @@ namespace Ejercicio03.Controllers
                     break;
                 case "CiudadesId_desc":
                     artistas = artistas.OrderByDescending(artista => artista.CiudadesId);
+                    break;
+                case "GenerosId":
+                    artistas = artistas.OrderBy(artista => artista.GenerosId);
+                    break;
+                case "GenerosId_desc":
+                    artistas = artistas.OrderByDescending(artista => artista.GenerosId);
                     break;
                 case "GruposId":
                     artistas = artistas.OrderBy(artista => artista.GruposId);

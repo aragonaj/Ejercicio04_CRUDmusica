@@ -25,8 +25,8 @@ namespace Ejercicio03.Controllers
             ViewData["Duracion"] = sortOrder == "Duracion" ? "Duracion_desc" : "Duracion";
             ViewData["Single"] = sortOrder == "Single" ? "Single_desc" : "Single";
             ViewData["Albumes"] = sortOrder == "Albumes" ? "Albumes_desc" : "Albumes";
-            var canciones = from cancion in _context.Canciones
-                           select cancion;
+            var canciones = from cancion in _context.Canciones.Include(cancion => cancion.Albumes)
+                            select cancion;
             switch (sortOrder)
             {
                 case "Titulo":
