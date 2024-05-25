@@ -22,20 +22,20 @@ namespace Ejercicio03.Controllers
         // GET: Plataformas
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            var plataformas = from plataforma in _context.Plataformas
-                         select plataforma;
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    plataformas = plataformas.OrderByDescending(plataforma => plataforma.Nombre);
-                    break;
-                default:
-                    plataformas = plataformas.OrderBy(plataforma => plataforma.Nombre);
-                    break;
-            }
-            return View(await plataformas.AsNoTracking().ToListAsync());
-            //return View(await _context.Plataformas.ToListAsync());
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //var plataformas = from plataforma in _context.Plataformas
+            //             select plataforma;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        plataformas = plataformas.OrderByDescending(plataforma => plataforma.Nombre);
+            //        break;
+            //    default:
+            //        plataformas = plataformas.OrderBy(plataforma => plataforma.Nombre);
+            //        break;
+            //}
+            //return View(await plataformas.AsNoTracking().ToListAsync());
+            return View(await _context.Plataformas.ToListAsync());
         }
 
         // GET: Plataformas/Details/5

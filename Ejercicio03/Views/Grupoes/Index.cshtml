@@ -9,38 +9,38 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-hover table-sm" id="datatableCheating">
     <thead>
         <tr>
             <th>
-               @*  @Html.DisplayNameFor(model => model.Nombre) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Nombre"]">@Html.DisplayNameFor(model => model.Nombre)</a>
+                @Html.DisplayNameFor(model => model.Nombre)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Nombre"]">@Html.DisplayNameFor(model => model.Nombre)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Grupo1) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Grupo1"]">@Html.DisplayNameFor(model => model.Grupo1)</a>
+                @Html.DisplayNameFor(model => model.Grupo1)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Grupo1"]">@Html.DisplayNameFor(model => model.Grupo1)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.FechaCreacion) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["FechaCreacion"]">@Html.DisplayNameFor(model => model.FechaCreacion)</a>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["FechaCreacion"]">@Html.DisplayNameFor(model => model.FechaCreacion)</a> *@
             </th>
             <th>
-               @*  @Html.DisplayNameFor(model => model.Ciudades) *@
-                <a asp-action="Index"
-                asp-route-sortOrder="@ViewData["Ciudades"]">@Html.DisplayNameFor(model => model.Ciudades)</a>
+                @Html.DisplayNameFor(model => model.Ciudades)
+                @* <a asp-action="Index"
+                asp-route-sortOrder="@ViewData["Ciudades"]">@Html.DisplayNameFor(model => model.Ciudades)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Generos) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Generos"]">@Html.DisplayNameFor(model => model.Generos)</a>
+                @Html.DisplayNameFor(model => model.Generos)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Generos"]">@Html.DisplayNameFor(model => model.Generos)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Representantes) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Representantes"]">@Html.DisplayNameFor(model => model.Representantes)</a>
+                @Html.DisplayNameFor(model => model.Representantes)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Representantes"]">@Html.DisplayNameFor(model => model.Representantes)</a> *@
             </th>
             <th></th>
         </tr>

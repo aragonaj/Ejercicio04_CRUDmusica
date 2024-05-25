@@ -22,29 +22,28 @@ namespace Ejercicio03.Controllers
         // GET: Ciudades
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["Paises"] = sortOrder == "Paises" ? "Paises_desc" : "Paises";
-            var ciudades = from ciudad in _context.Ciudades.Include(c => c.Paises)
-                           select ciudad;
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    ciudades = ciudades.OrderByDescending(ciudad => ciudad.Nombre);
-                    break;
-                case "Paises":
-                    ciudades = ciudades.OrderBy(ciudad => ciudad.Paises);
-                    break;
-                case "Paises_desc":
-                    ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
-                    break;
-                default:
-                    ciudades = ciudades.OrderBy(ciudad => ciudad.Nombre);
-                    break;
-            }
-            //var grupoBContext = _context.Ciudades.Include(c => c.Paises);
-            //return View(await grupoBContext.ToListAsync());
-            //return View(await ciudades.ToListAsync());
-            return View(await ciudades.AsNoTracking().ToListAsync());
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["Paises"] = sortOrder == "Paises" ? "Paises_desc" : "Paises";
+            //var ciudades = from ciudad in _context.Ciudades.Include(c => c.Paises)
+            //               select ciudad;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        ciudades = ciudades.OrderByDescending(ciudad => ciudad.Nombre);
+            //        break;
+            //    case "Paises":
+            //        ciudades = ciudades.OrderBy(ciudad => ciudad.Paises);
+            //        break;
+            //    case "Paises_desc":
+            //        ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
+            //        break;
+            //    default:
+            //        ciudades = ciudades.OrderBy(ciudad => ciudad.Nombre);
+            //        break;
+            //}
+            //return View(await ciudades.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.Ciudades.Include(c => c.Paises);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Ciudades/Details/5

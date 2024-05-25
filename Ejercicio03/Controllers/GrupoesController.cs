@@ -22,56 +22,56 @@ namespace Ejercicio03.Controllers
         // GET: Grupoes
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["Grupo1"] = sortOrder == "Grupo1" ? "Grupo1_desc" : "Grupo1";
-            ViewData["FechaCreacion"] = sortOrder == "FechaCreacion" ? "FechaCreacion_desc" : "FechaCreacion";
-            ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
-            ViewData["Generos"] = sortOrder == "Generos" ? "Generos_desc" : "Generos";
-            ViewData["Representantes"] = sortOrder == "Representantes" ? "Representantes_desc" : "Representantes";
-            var grupos = from grupo in _context.Grupos.Include(g => g.Ciudades).Include(g => g.Generos).Include(g => g.Representantes)
-                         select grupo;
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Nombre);
-                    break;
-                case "Grupo1":
-                    grupos = grupos.OrderBy(grupo => grupo.Grupo1);
-                    break;
-                case "Grupo1_desc":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Grupo1);
-                    break;
-                case "FechaCreacion":
-                    grupos = grupos.OrderBy(grupo => grupo.FechaCreacion);
-                    break;
-                case "FechaCreacion_desc":
-                    grupos = grupos.OrderByDescending(grupo => grupo.FechaCreacion);
-                    break;
-                case "Ciudades":
-                    grupos = grupos.OrderBy(grupo => grupo.Ciudades);
-                    break;
-                case "Ciudades_desc":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Ciudades);
-                    break;
-                case "Generos":
-                    grupos = grupos.OrderBy(grupo => grupo.Generos);
-                    break;
-                case "Generos_desc":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Generos);
-                    break;
-                case "Representantes":
-                    grupos = grupos.OrderBy(grupo => grupo.Representantes);
-                    break;
-                case "Representantes_desc":
-                    grupos = grupos.OrderByDescending(grupo => grupo.Representantes);
-                    break;
-                default:
-                    grupos = grupos.OrderBy(grupo => grupo.Nombre);
-                    break;
-            }
-            return View(await grupos.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.Grupos.Include(g => g.Ciudades).Include(g => g.Generos).Include(g => g.Representantes);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["Grupo1"] = sortOrder == "Grupo1" ? "Grupo1_desc" : "Grupo1";
+            //ViewData["FechaCreacion"] = sortOrder == "FechaCreacion" ? "FechaCreacion_desc" : "FechaCreacion";
+            //ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
+            //ViewData["Generos"] = sortOrder == "Generos" ? "Generos_desc" : "Generos";
+            //ViewData["Representantes"] = sortOrder == "Representantes" ? "Representantes_desc" : "Representantes";
+            //var grupos = from grupo in _context.Grupos.Include(g => g.Ciudades).Include(g => g.Generos).Include(g => g.Representantes)
+            //             select grupo;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        grupos = grupos.OrderByDescending(grupo => grupo.Nombre);
+            //        break;
+            //    case "Grupo1":
+            //        grupos = grupos.OrderBy(grupo => grupo.Grupo1);
+            //        break;
+            //    case "Grupo1_desc":
+            //        grupos = grupos.OrderByDescending(grupo => grupo.Grupo1);
+            //        break;
+            //    case "FechaCreacion":
+            //        grupos = grupos.OrderBy(grupo => grupo.FechaCreacion);
+            //        break;
+            //    case "FechaCreacion_desc":
+            //        grupos = grupos.OrderByDescending(grupo => grupo.FechaCreacion);
+            //        break;
+            //    case "Ciudades":
+            //        grupos = grupos.OrderBy(grupo => grupo.Ciudades);
+            //        break;
+            //    case "Ciudades_desc":
+            //        grupos = grupos.OrderByDescending(grupo => grupo.Ciudades);
+            //        break;
+            //    case "Generos":
+            //        grupos = grupos.OrderBy(grupo => grupo.Generos);
+            //        break;
+            //    case "Generos_desc":
+            //        grupos = grupos.OrderByDescending(grupo => grupo.Generos);
+            //        break;
+            //    case "Representantes":
+            //        grupos = grupos.OrderBy(grupo => grupo.Representantes);
+            //        break;
+            //    case "Representantes_desc":
+            //        grupos = grupos.OrderByDescending(grupo => grupo.Representantes);
+            //        break;
+            //    default:
+            //        grupos = grupos.OrderBy(grupo => grupo.Nombre);
+            //        break;
+            //}
+            //return View(await grupos.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.Grupos.Include(g => g.Ciudades).Include(g => g.Generos).Include(g => g.Representantes);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Grupoes/Details/5

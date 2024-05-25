@@ -9,13 +9,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-hover table-sm" id="datatableCheating">
     <thead>
         <tr>
             <th>
-                @* @Html.DisplayNameFor(model => model.Descripcion) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Descripcion"]">@Html.DisplayNameFor(model => model.Descripcion)</a>
+                @Html.DisplayNameFor(model => model.Descripcion)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Descripcion"]">@Html.DisplayNameFor(model => model.Descripcion)</a> *@
             </th>
             <th></th>
         </tr>

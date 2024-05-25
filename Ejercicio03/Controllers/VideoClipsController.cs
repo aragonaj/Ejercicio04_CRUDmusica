@@ -21,28 +21,28 @@ namespace Ejercicio03.Controllers
         // GET: VideoClips
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Fecha"] = String.IsNullOrEmpty(sortOrder) ? "Fecha" : "";
-            ViewData["Canciones"] = sortOrder == "Canciones" ? "Canciones_desc" : "Canciones";
-            var videoclips = from videoclip in _context.VideoClips.Include(v => v.Canciones)
-                             select videoclip;
-            switch (sortOrder)
-            {
-                case "Fecha":
-                    videoclips = videoclips.OrderByDescending(videoclip => videoclip.Fecha);
-                    break;
-                case "Canciones":
-                    videoclips = videoclips.OrderBy(videoclip => videoclip.Canciones);
-                    break;
-                case "Canciones_desc":
-                    videoclips = videoclips.OrderByDescending(videoclip => videoclip.Canciones);
-                    break;
-                default:
-                    videoclips = videoclips.OrderBy(videoclip => videoclip.Fecha);
-                    break;
-            }
-            return View(await videoclips.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.VideoClips.Include(v => v.Canciones);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["Fecha"] = String.IsNullOrEmpty(sortOrder) ? "Fecha" : "";
+            //ViewData["Canciones"] = sortOrder == "Canciones" ? "Canciones_desc" : "Canciones";
+            //var videoclips = from videoclip in _context.VideoClips.Include(v => v.Canciones)
+            //                 select videoclip;
+            //switch (sortOrder)
+            //{
+            //    case "Fecha":
+            //        videoclips = videoclips.OrderByDescending(videoclip => videoclip.Fecha);
+            //        break;
+            //    case "Canciones":
+            //        videoclips = videoclips.OrderBy(videoclip => videoclip.Canciones);
+            //        break;
+            //    case "Canciones_desc":
+            //        videoclips = videoclips.OrderByDescending(videoclip => videoclip.Canciones);
+            //        break;
+            //    default:
+            //        videoclips = videoclips.OrderBy(videoclip => videoclip.Fecha);
+            //        break;
+            //}
+            //return View(await videoclips.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.VideoClips.Include(v => v.Canciones);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: VideoClips/Details/5

@@ -21,28 +21,28 @@ namespace Ejercicio03.Controllers
         // GET: FuncionesArtistas
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Artistas"] = String.IsNullOrEmpty(sortOrder) ? "Artistas" : "";
-            ViewData["Funciones"] = sortOrder == "Funciones" ? "Funciones_desc" : "Funciones";
-            var funcionesArtistas = from funcion in _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones)
-                                    select funcion;
-            switch (sortOrder)
-            {
-                case "Artistas":
-                    funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
-                    break;
-                case "Funciones":
-                    funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
-                    break;
-                case "Funciones_desc":
-                    funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
-                    break;
-                default:
-                    funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
-                    break;
-            }
-            return View(await funcionesArtistas.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["Artistas"] = String.IsNullOrEmpty(sortOrder) ? "Artistas" : "";
+            //ViewData["Funciones"] = sortOrder == "Funciones" ? "Funciones_desc" : "Funciones";
+            //var funcionesArtistas = from funcion in _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones)
+            //                        select funcion;
+            //switch (sortOrder)
+            //{
+            //    case "Artistas":
+            //        funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
+            //        break;
+            //    case "Funciones":
+            //        funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
+            //        break;
+            //    case "Funciones_desc":
+            //        funcionesArtistas = funcionesArtistas.OrderByDescending(concierto => concierto.Artistas);
+            //        break;
+            //    default:
+            //        funcionesArtistas = funcionesArtistas.OrderBy(concierto => concierto.Artistas);
+            //        break;
+            //}
+            //return View(await funcionesArtistas.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.FuncionesArtistas.Include(f => f.Artistas).Include(f => f.Funciones);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: FuncionesArtistas/Details/5

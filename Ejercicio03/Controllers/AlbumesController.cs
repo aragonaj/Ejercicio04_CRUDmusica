@@ -22,42 +22,42 @@ namespace Ejercicio03.Controllers
         // GET: Albumes
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["Fecha"] = sortOrder == "Fecha" ? "Fecha_desc" : "Fecha";
-            ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
-            ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
-            var albumes = from album in _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos)
-                          select album;
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    albumes = albumes.OrderByDescending(album => album.Nombre);
-                    break;
-                case "Fecha":
-                    albumes = albumes.OrderBy(album => album.Fecha);
-                    break;
-                case "Fecha_desc":
-                    albumes = albumes.OrderByDescending(album => album.Fecha);
-                    break;
-                case "GenerosId":
-                    albumes = albumes.OrderBy(album => album.GenerosId);
-                    break;
-                case "GenerosId_desc":
-                    albumes = albumes.OrderByDescending(album => album.GenerosId);
-                    break;
-                case "GruposId":
-                    albumes = albumes.OrderBy(album => album.GruposId);
-                    break;
-                case "GruposId_desc":
-                    albumes = albumes.OrderByDescending(album => album.GruposId);
-                    break;
-                default:
-                    albumes = albumes.OrderBy(album => album.Nombre);
-                    break;
-            }
-            return View(await albumes.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["Fecha"] = sortOrder == "Fecha" ? "Fecha_desc" : "Fecha";
+            //ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
+            //ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
+            //var albumes = from album in _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos)
+            //              select album;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        albumes = albumes.OrderByDescending(album => album.Nombre);
+            //        break;
+            //    case "Fecha":
+            //        albumes = albumes.OrderBy(album => album.Fecha);
+            //        break;
+            //    case "Fecha_desc":
+            //        albumes = albumes.OrderByDescending(album => album.Fecha);
+            //        break;
+            //    case "GenerosId":
+            //        albumes = albumes.OrderBy(album => album.GenerosId);
+            //        break;
+            //    case "GenerosId_desc":
+            //        albumes = albumes.OrderByDescending(album => album.GenerosId);
+            //        break;
+            //    case "GruposId":
+            //        albumes = albumes.OrderBy(album => album.GruposId);
+            //        break;
+            //    case "GruposId_desc":
+            //        albumes = albumes.OrderByDescending(album => album.GruposId);
+            //        break;
+            //    default:
+            //        albumes = albumes.OrderBy(album => album.Nombre);
+            //        break;
+            //}
+            //return View(await albumes.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Albumes/Details/5

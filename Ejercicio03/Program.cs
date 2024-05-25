@@ -1,4 +1,6 @@
-// https://www.youtube.com/watch?v=WplklpczJX8
+// WEBGRAFÍA
+// https://www.youtube.com/watch?v=WplklpczJX8 
+// https://www.youtube.com/watch?v=U0zYxZ6OzDM -JQuery
 
 //--no-pluralize
 //--use-Database-name

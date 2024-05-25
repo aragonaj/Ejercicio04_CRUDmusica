@@ -9,28 +9,31 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<!-- SEARCH FILTER -->
+
+<!-- END SEARCH FILTER--> 
+<table class="table table-hover table-sm" id="datatableCheating">
     <thead>
         <tr>
             <th>
-                @* @Html.DisplayNameFor(model => model.Nombre) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Nombre"]">@Html.DisplayNameFor(model => model.Nombre)</a>
+                @Html.DisplayNameFor(model => model.Nombre)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Nombre"]">@Html.DisplayNameFor(model => model.Nombre)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Fecha) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Fecha"]">@Html.DisplayNameFor(model => model.Fecha)</a>
+                @Html.DisplayNameFor(model => model.Fecha)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Fecha"]">@Html.DisplayNameFor(model => model.Fecha)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Generos) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Generos"]">@Html.DisplayNameFor(model => model.Generos)</a>
+                @Html.DisplayNameFor(model => model.Generos)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Generos"]">@Html.DisplayNameFor(model => model.Generos)</a> *@
             </th>
             <th>
-                @* @Html.DisplayNameFor(model => model.Grupos) *@
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Grupos"]">@Html.DisplayNameFor(model => model.Grupos)</a>
+                @Html.DisplayNameFor(model => model.Grupos)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Grupos"]">@Html.DisplayNameFor(model => model.Grupos)</a> *@
             </th>
             <th></th>
         </tr>

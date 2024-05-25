@@ -21,20 +21,20 @@ namespace Ejercicio03.Controllers
         // GET: Funciones
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            var funciones = from funcion in _context.Funciones
-                           select funcion;
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    funciones = funciones.OrderByDescending(funcion => funcion.Nombre);
-                    break;
-                default:
-                    funciones = funciones.OrderBy(funcion => funcion.Nombre);
-                    break;
-            }
-            return View(await funciones.ToListAsync());
-            //return View(await _context.Funciones.ToListAsync());
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //var funciones = from funcion in _context.Funciones
+            //               select funcion;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        funciones = funciones.OrderByDescending(funcion => funcion.Nombre);
+            //        break;
+            //    default:
+            //        funciones = funciones.OrderBy(funcion => funcion.Nombre);
+            //        break;
+            //}
+            //return View(await funciones.ToListAsync());
+            return View(await _context.Funciones.ToListAsync());
         }
 
         // GET: Funciones/Details/5

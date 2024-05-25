@@ -21,28 +21,28 @@ namespace Ejercicio03.Controllers
         // GET: VideoClipsPlataformas
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Plataformas"] = String.IsNullOrEmpty(sortOrder) ? "Plataforma" : "";
-            ViewData["VideoClips"] = sortOrder == "VideoClips" ? "VideoClips_desc" : "VideoClips";
-            var videoclipsPlataformas = from videoclipPlataformas in _context.VideoClipsPlataformas.Include(v => v.Plataformas).Include(v => v.VideoClips)
-                                        select videoclipPlataformas;
-            switch (sortOrder)
-            {
-                case "Fecha":
-                    videoclipsPlataformas = videoclipsPlataformas.OrderByDescending(videoclipPlataformas => videoclipPlataformas.Plataformas);
-                    break;
-                case "VideoClips":
-                    videoclipsPlataformas = videoclipsPlataformas.OrderBy(videoclipPlataformas => videoclipPlataformas.VideoClips);
-                    break;
-                case "VideoClips_desc":
-                    videoclipsPlataformas = videoclipsPlataformas.OrderByDescending(videoclipPlataformas => videoclipPlataformas.VideoClips);
-                    break;
-                default:
-                    videoclipsPlataformas = videoclipsPlataformas.OrderBy(videoclipPlataformas => videoclipPlataformas.Plataformas);
-                    break;
-            }
-            return View(await videoclipsPlataformas.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.VideoClipsPlataformas.Include(v => v.Plataformas).Include(v => v.VideoClips);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["Plataformas"] = String.IsNullOrEmpty(sortOrder) ? "Plataforma" : "";
+            //ViewData["VideoClips"] = sortOrder == "VideoClips" ? "VideoClips_desc" : "VideoClips";
+            //var videoclipsPlataformas = from videoclipPlataformas in _context.VideoClipsPlataformas.Include(v => v.Plataformas).Include(v => v.VideoClips)
+            //                            select videoclipPlataformas;
+            //switch (sortOrder)
+            //{
+            //    case "Fecha":
+            //        videoclipsPlataformas = videoclipsPlataformas.OrderByDescending(videoclipPlataformas => videoclipPlataformas.Plataformas);
+            //        break;
+            //    case "VideoClips":
+            //        videoclipsPlataformas = videoclipsPlataformas.OrderBy(videoclipPlataformas => videoclipPlataformas.VideoClips);
+            //        break;
+            //    case "VideoClips_desc":
+            //        videoclipsPlataformas = videoclipsPlataformas.OrderByDescending(videoclipPlataformas => videoclipPlataformas.VideoClips);
+            //        break;
+            //    default:
+            //        videoclipsPlataformas = videoclipsPlataformas.OrderBy(videoclipPlataformas => videoclipPlataformas.Plataformas);
+            //        break;
+            //}
+            //return View(await videoclipsPlataformas.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.VideoClipsPlataformas.Include(v => v.Plataformas).Include(v => v.VideoClips);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: VideoClipsPlataformas/Details/5

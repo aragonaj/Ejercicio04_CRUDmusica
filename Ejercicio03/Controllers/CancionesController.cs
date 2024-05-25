@@ -21,42 +21,42 @@ namespace Ejercicio03.Controllers
         // GET: Canciones
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Titulo"] = String.IsNullOrEmpty(sortOrder) ? "Titulo" : "";
-            ViewData["Duracion"] = sortOrder == "Duracion" ? "Duracion_desc" : "Duracion";
-            ViewData["Single"] = sortOrder == "Single" ? "Single_desc" : "Single";
-            ViewData["Albumes"] = sortOrder == "Albumes" ? "Albumes_desc" : "Albumes";
-            var canciones = from cancion in _context.Canciones.Include(c => c.Albumes)
-                            select cancion;
-            switch (sortOrder)
-            {
-                case "Titulo":
-                    canciones = canciones.OrderByDescending(cancion => cancion.Titulo);
-                    break;
-                case "Duracion":
-                    canciones = canciones.OrderBy(cancion => cancion.Duracion);
-                    break;
-                case "Duracion_desc":
-                    canciones = canciones.OrderByDescending(cancion => cancion.Duracion);
-                    break;
-                case "Single":
-                    canciones = canciones.OrderBy(cancion => cancion.Single);
-                    break;
-                case "Single_desc":
-                    canciones = canciones.OrderByDescending(cancion => cancion.Single);
-                    break;
-                case "Albumes":
-                    canciones = canciones.OrderBy(cancion => cancion.Albumes);
-                    break;
-                case "Albumes_desc":
-                    canciones = canciones.OrderByDescending(cancion => cancion.Albumes);
-                    break;
-                default:
-                    canciones = canciones.OrderBy(cancion => cancion.Titulo);
-                    break;
-            }
-            return View(await canciones.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.Canciones.Include(c => c.Albumes);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["Titulo"] = String.IsNullOrEmpty(sortOrder) ? "Titulo" : "";
+            //ViewData["Duracion"] = sortOrder == "Duracion" ? "Duracion_desc" : "Duracion";
+            //ViewData["Single"] = sortOrder == "Single" ? "Single_desc" : "Single";
+            //ViewData["Albumes"] = sortOrder == "Albumes" ? "Albumes_desc" : "Albumes";
+            //var canciones = from cancion in _context.Canciones.Include(c => c.Albumes)
+            //                select cancion;
+            //switch (sortOrder)
+            //{
+            //    case "Titulo":
+            //        canciones = canciones.OrderByDescending(cancion => cancion.Titulo);
+            //        break;
+            //    case "Duracion":
+            //        canciones = canciones.OrderBy(cancion => cancion.Duracion);
+            //        break;
+            //    case "Duracion_desc":
+            //        canciones = canciones.OrderByDescending(cancion => cancion.Duracion);
+            //        break;
+            //    case "Single":
+            //        canciones = canciones.OrderBy(cancion => cancion.Single);
+            //        break;
+            //    case "Single_desc":
+            //        canciones = canciones.OrderByDescending(cancion => cancion.Single);
+            //        break;
+            //    case "Albumes":
+            //        canciones = canciones.OrderBy(cancion => cancion.Albumes);
+            //        break;
+            //    case "Albumes_desc":
+            //        canciones = canciones.OrderByDescending(cancion => cancion.Albumes);
+            //        break;
+            //    default:
+            //        canciones = canciones.OrderBy(cancion => cancion.Titulo);
+            //        break;
+            //}
+            //return View(await canciones.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.Canciones.Include(c => c.Albumes);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Canciones/Details/5

@@ -21,56 +21,56 @@ namespace Ejercicio03.Controllers
         // GET: Representantes
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["NombreCompleto"] = String.IsNullOrEmpty(sortOrder) ? "NombreCompleto" : "";
-            ViewData["FechaNacimiento"] = sortOrder == "FechaNacimiento" ? "FechaNacimiento_desc" : "FechaNacimiento";
-            ViewData["Identificacion"] = sortOrder == "Identificacion" ? "Identificacion_desc" : "Identificacion";
-            ViewData["Mail"] = sortOrder == "Mail" ? "Mail_desc" : "Mail";
-            ViewData["Telefono"] = sortOrder == "Telefono" ? "Telefono_desc" : "Telefono";
-            ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
-            var representantes = from representante in _context.Representantes.Include(r => r.Ciudades)
-                                 select representante;
-            switch (sortOrder)
-            {
-                case "NombreCompleto":
-                    representantes = representantes.OrderByDescending(representante => representante.NombreCompleto);
-                    break;
-                case "FechaNacimiento":
-                    representantes = representantes.OrderBy(representante => representante.FechaNacimiento);
-                    break;
-                case "FechaNacimiento_desc":
-                    representantes = representantes.OrderByDescending(representante => representante.FechaNacimiento);
-                    break;
-                case "Identificacion":
-                    representantes = representantes.OrderBy(representante => representante.Identificacion);
-                    break;
-                case "Identificacion_desc":
-                    representantes = representantes.OrderByDescending(representante => representante.Identificacion);
-                    break;
-                case "Mail":
-                    representantes = representantes.OrderBy(representante => representante.Mail);
-                    break;
-                case "Mail_desc":
-                    representantes = representantes.OrderByDescending(representante => representante.Mail);
-                    break; 
-                case "Telefono":
-                    representantes = representantes.OrderBy(representante => representante.Telefono);
-                    break;
-                case "Telefono_desc":
-                    representantes = representantes.OrderByDescending(representante => representante.Telefono);
-                    break;
-                case "Ciudades":
-                    representantes = representantes.OrderBy(representante => representante.Ciudades);
-                    break;
-                case "Ciudades_desc":
-                    representantes = representantes.OrderByDescending(representante => representante.Ciudades);
-                    break;
-                default:
-                    representantes = representantes.OrderBy(concierto => concierto.NombreCompleto);
-                    break;
-            }
-            return View(await representantes.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.Representantes.Include(r => r.Ciudades);
-            //return View(await grupoBContext.ToListAsync());
+            //ViewData["NombreCompleto"] = String.IsNullOrEmpty(sortOrder) ? "NombreCompleto" : "";
+            //ViewData["FechaNacimiento"] = sortOrder == "FechaNacimiento" ? "FechaNacimiento_desc" : "FechaNacimiento";
+            //ViewData["Identificacion"] = sortOrder == "Identificacion" ? "Identificacion_desc" : "Identificacion";
+            //ViewData["Mail"] = sortOrder == "Mail" ? "Mail_desc" : "Mail";
+            //ViewData["Telefono"] = sortOrder == "Telefono" ? "Telefono_desc" : "Telefono";
+            //ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
+            //var representantes = from representante in _context.Representantes.Include(r => r.Ciudades)
+            //                     select representante;
+            //switch (sortOrder)
+            //{
+            //    case "NombreCompleto":
+            //        representantes = representantes.OrderByDescending(representante => representante.NombreCompleto);
+            //        break;
+            //    case "FechaNacimiento":
+            //        representantes = representantes.OrderBy(representante => representante.FechaNacimiento);
+            //        break;
+            //    case "FechaNacimiento_desc":
+            //        representantes = representantes.OrderByDescending(representante => representante.FechaNacimiento);
+            //        break;
+            //    case "Identificacion":
+            //        representantes = representantes.OrderBy(representante => representante.Identificacion);
+            //        break;
+            //    case "Identificacion_desc":
+            //        representantes = representantes.OrderByDescending(representante => representante.Identificacion);
+            //        break;
+            //    case "Mail":
+            //        representantes = representantes.OrderBy(representante => representante.Mail);
+            //        break;
+            //    case "Mail_desc":
+            //        representantes = representantes.OrderByDescending(representante => representante.Mail);
+            //        break; 
+            //    case "Telefono":
+            //        representantes = representantes.OrderBy(representante => representante.Telefono);
+            //        break;
+            //    case "Telefono_desc":
+            //        representantes = representantes.OrderByDescending(representante => representante.Telefono);
+            //        break;
+            //    case "Ciudades":
+            //        representantes = representantes.OrderBy(representante => representante.Ciudades);
+            //        break;
+            //    case "Ciudades_desc":
+            //        representantes = representantes.OrderByDescending(representante => representante.Ciudades);
+            //        break;
+            //    default:
+            //        representantes = representantes.OrderBy(concierto => concierto.NombreCompleto);
+            //        break;
+            //}
+            //return View(await representantes.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.Representantes.Include(r => r.Ciudades);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Representantes/Details/5

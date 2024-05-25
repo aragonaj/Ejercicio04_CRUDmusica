@@ -19,53 +19,53 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Artistas
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            ViewData["FechaDeNacimiento"] = sortOrder == "FechaDeNacimiento" ? "FechaDeNacimiento_desc" : "FechaDeNacimiento";
-            ViewData["CiudadesId"] = sortOrder == "CiudadesId" ? "CiudadesId_desc" : "CiudadesId";
-            ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
-            ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
-            var artistas = from artista in _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos)
-                           select artista;
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["FechaDeNacimiento"] = sortOrder == "FechaDeNacimiento" ? "FechaDeNacimiento_desc" : "FechaDeNacimiento";
+            //ViewData["CiudadesId"] = sortOrder == "CiudadesId" ? "CiudadesId_desc" : "CiudadesId";
+            //ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
+            //ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
+            //var artistas = from artista in _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos)
+            //               select artista;
 
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    artistas = artistas.OrderByDescending(artista => artista.Nombre);
-                    break;
-                case "FechaDeNacimiento":
-                    artistas = artistas.OrderBy(artista => artista.FechaDeNacimiento);
-                    break;
-                case "FechaDeNacimiento_desc":
-                    artistas = artistas.OrderByDescending(artista => artista.FechaDeNacimiento);
-                    break;
-                case "CiudadesId":
-                    artistas = artistas.OrderBy(artista => artista.CiudadesId);
-                    break;
-                case "CiudadesId_desc":
-                    artistas = artistas.OrderByDescending(artista => artista.CiudadesId);
-                    break;
-                case "GenerosId":
-                    artistas = artistas.OrderBy(artista => artista.GenerosId);
-                    break;
-                case "GenerosId_desc":
-                    artistas = artistas.OrderByDescending(artista => artista.GenerosId);
-                    break;
-                case "GruposId":
-                    artistas = artistas.OrderBy(artista => artista.GruposId);
-                    break;
-                case "GruposId_desc":
-                    artistas = artistas.OrderByDescending(artista => artista.GruposId);
-                    break;
-                default:
-                    artistas = artistas.OrderBy(artista => artista.Nombre);
-                    break;
-            }
-            
-            return View(await artistas.AsNoTracking().ToListAsync());
-            //var grupoBContext = _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos);
-            //return View(await grupoBContext.ToListAsync());
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        artistas = artistas.OrderByDescending(artista => artista.Nombre);
+            //        break;
+            //    case "FechaDeNacimiento":
+            //        artistas = artistas.OrderBy(artista => artista.FechaDeNacimiento);
+            //        break;
+            //    case "FechaDeNacimiento_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.FechaDeNacimiento);
+            //        break;
+            //    case "CiudadesId":
+            //        artistas = artistas.OrderBy(artista => artista.CiudadesId);
+            //        break;
+            //    case "CiudadesId_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.CiudadesId);
+            //        break;
+            //    case "GenerosId":
+            //        artistas = artistas.OrderBy(artista => artista.GenerosId);
+            //        break;
+            //    case "GenerosId_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.GenerosId);
+            //        break;
+            //    case "GruposId":
+            //        artistas = artistas.OrderBy(artista => artista.GruposId);
+            //        break;
+            //    case "GruposId_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.GruposId);
+            //        break;
+            //    default:
+            //        artistas = artistas.OrderBy(artista => artista.Nombre);
+            //        break;
+            //}
+
+            //return View(await artistas.AsNoTracking().ToListAsync());
+            var grupoBContext = _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos);
+            return View(await grupoBContext.ToListAsync());
         }
 
         // GET: Artistas/Details/5

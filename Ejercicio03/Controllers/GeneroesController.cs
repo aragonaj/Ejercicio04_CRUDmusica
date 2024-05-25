@@ -22,20 +22,20 @@ namespace Ejercicio03.Controllers
         // GET: Generoes
         public async Task<IActionResult> Index(string sortOrder)
         {
-            ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
-            var generos = from genero in _context.Generos
-                            select genero;
-            switch (sortOrder)
-            {
-                case "Nombre":
-                    generos = generos.OrderByDescending(genero => genero.Nombre);
-                    break;
-                default:
-                    generos = generos.OrderBy(genero => genero.Nombre);
-                    break;
-            }
-            return View(await generos.ToListAsync());
-            //return View(await _context.Generos.ToListAsync());
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //var generos = from genero in _context.Generos
+            //                select genero;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        generos = generos.OrderByDescending(genero => genero.Nombre);
+            //        break;
+            //    default:
+            //        generos = generos.OrderBy(genero => genero.Nombre);
+            //        break;
+            //}
+            //return View(await generos.ToListAsync());
+            return View(await _context.Generos.ToListAsync());
         }
 
         // GET: Generoes/Details/5
