@@ -15,7 +15,7 @@
     <header class="header" id="header">
         <div class="header-content" id="header-content">
             <!-- menu-nav-hor - menú navegación horizontal -->
-            <a href="#" class="logo" id="logo">LOGO</a>
+            <a href="Home" class="logo" id="logo">HOME</a>
             <nav class="nav" id="nav">
                 <ul class="nav__list menu-navBar">
                     <li class="nav__item menu-li">
@@ -32,81 +32,78 @@
                 <div class="bar"></div>
             </div>
             <!-- end menu-nav-hor -->
-            @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ejercicio03</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Albumes" asp-action="Index">Albumes</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Artistas" asp-action="Index">Artistas</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Canciones" asp-action="Index">Canciones</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Ciudades" asp-action="Index">Ciudades</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Conciertoes" asp-action="Index">Conciertos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Empleadoes" asp-action="Index">Empleados</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Funciones" asp-action="Index">Funciones</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="FuncionesArtistas" asp-action="Index">Funciones Artista</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Generoes" asp-action="Index">Géneros</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Giras" asp-action="Index">Giras</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Grupoes" asp-action="Index">Grupos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Paises" asp-action="Index">Países</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Plataformas" asp-action="Index">Plataformas</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Representantes" asp-action="Index">Representantes</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="VideoClips" asp-action="Index">Videoclips</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="VideoClipsPlataformas" asp-action="Index">Videoclips en plataformas</a>
-            </li>
-            </ul>
-            </div>
-            </div>
-            </nav> *@
         </div>
     </header>
-    <main class="main" id="main">
-        <div class="container">
-            <main role="main" class="pb-3">
+    <main class="main">
+        <div class="row">
+            <section class="seccion contenedor-menuLateral" id="menuLateral">
+                <!-- menu-nav-lat - menú navegación lateral -->
+                <span class="span" id="titulo-latMenu">TABLAS</span>
+                <hr />
+                <nav class="nav navLat" id="navLat">
+                    <ul class="navLat-menu" id="navLat-menu">
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-albumes" asp-area="" asp-controller="Albumes" asp-action="Index">Álbumes</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-artistas" asp-area="" asp-controller="Artistas" asp-action="Index">Artistas</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-canciones" asp-area="" asp-controller="Canciones" asp-action="Index">Canciones</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-ciudades" asp-area="" asp-controller="Ciudades" asp-action="Index">Ciudades</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-conciertos" asp-area="" asp-controller="Conciertoes" asp-action="Index">Conciertos</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-empleados" asp-area="" asp-controller="Empleadoes" asp-action="Index">Empleados</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-funciones" asp-area="" asp-controller="Funciones" asp-action="Index">Funciones</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-funcionesArtistas" asp-area="" asp-controller="FuncionesArtistas" asp-action="Index">Funciones Artista</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-generos" asp-area="" asp-controller="Generoes" asp-action="Index">Géneros</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-giras" asp-area="" asp-controller="Giras" asp-action="Index">Giras</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-grupos" asp-area="" asp-controller="Grupoes" asp-action="Index">Grupos</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-paises" asp-area="" asp-controller="Paises" asp-action="Index">Países</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-plataformas" asp-area="" asp-controller="Plataformas" asp-action="Index">Plataformas</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-representantes" asp-area="" asp-controller="Representantes" asp-action="Index">Representantes</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-roles" asp-area="" asp-controller="Roles" asp-action="Index">Roles</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-videoclips" asp-area="" asp-controller="VideoClips" asp-action="Index">Videoclips</a>
+                        </li>
+                        <li class="navLat-li">
+                            <a class="navLat-link" id="link-vcPlataformas" asp-area="" asp-controller="VideoClipsPlataformas" asp-action="Index">Videoclips en plataformas</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- end menu-nav-hor -->
+            </section>
+            <section class="seccion contenido-main" id="contenido-main">
                 @RenderBody()
-            </main>
+            </section>
         </div>
     </main>
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class="">
+        <div class="">
             &copy; 2024 - Ejercicio03 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
@@ -114,8 +111,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true" defer></script>
     <!-- datatable -->
-    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.0.7/b-3.0.2/fc-5.0.0/sc-2.4.2/sb-1.7.1/sp-2.3.1/sl-2.0.1/datatables.min.js"></script> *@
     <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.7/b-3.0.2/fc-5.0.0/sc-2.4.2/sb-1.7.1/sp-2.3.1/sl-2.0.1/datatables.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
