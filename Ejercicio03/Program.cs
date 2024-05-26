@@ -10,6 +10,9 @@
 //public partial class NombreModelo
 //se copia el documento NombreModelo
 
+// La tabla álbumes da fallo al no haberla actualizado
+// La creación de una nueva función de un miembro de la banda ("Create new - Funciones artista") da error
+
 using Microsoft.EntityFrameworkCore.Storage;
 
 using Microsoft.EntityFrameworkCore;
