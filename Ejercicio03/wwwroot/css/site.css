@@ -114,7 +114,7 @@ body{
     transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width:){
+@media (max-width:768px){
     .nav {
         position: fixed;
         top: 60px;
