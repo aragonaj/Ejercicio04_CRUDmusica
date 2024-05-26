@@ -86,7 +86,7 @@ namespace Ejercicio03.Controllers
             ViewData["GenerosId"] = new SelectList(_context.Generos,
                 "Id", "Nombre");
             ViewData["GruposId"] = new SelectList(_context.Grupos,
-                "Id", "Id"); //"Canciones"
+                "Id", "Nombre"); //"Canciones"
             //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
             //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id");
             return View();
@@ -108,7 +108,7 @@ namespace Ejercicio03.Controllers
             ViewData["GenerosId"] = new SelectList(_context.Generos,
                 "Id", "Nombre", albume.GenerosId);
             ViewData["GruposId"] = new SelectList(_context.Grupos,
-                "Id", "Id", albume.GruposId); //"Canciones"
+                "Id", "Nombre", albume.GruposId); //"Canciones"
             //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
             //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
             return View(albume);
@@ -128,9 +128,9 @@ namespace Ejercicio03.Controllers
                 return NotFound();
             }
             ViewData["GenerosId"] = new SelectList(_context.Generos,
-                "Id", "Nombre", albume.GenerosId);
+                "Id", "Nombre");
             ViewData["GruposId"] = new SelectList(_context.Grupos,
-                "Id", "Id", albume.GruposId); //"Canciones"
+                "Id", "Nombre"); //"Canciones"
             //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
             //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
             return View(albume);
@@ -171,7 +171,7 @@ namespace Ejercicio03.Controllers
             ViewData["GenerosId"] = new SelectList(_context.Generos,
                 "Id", "Nombre", albume.GenerosId);
             ViewData["GruposId"] = new SelectList(_context.Grupos,
-                "Id", "Id", albume.GruposId); //"Canciones"
+                "Id", "Nombre", albume.GruposId); //"Canciones"
             //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
             //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
             return View(albume);

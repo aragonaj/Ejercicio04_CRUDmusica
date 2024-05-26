@@ -98,15 +98,15 @@ namespace Ejercicio03.Controllers
         // GET: Grupoes/Create
         public IActionResult Create()
         {
-            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
-            //    "Id", "Nombre");
-            //ViewData["GenerosId"] = new SelectList(_context.Generos,
-            //    "Id", "Nombre");
-            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
-            //    "Id", "NombreCompleto");
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id");
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
-            ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id");
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre");
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre");
+            ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
+                "Id", "NombreCompleto");
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id");
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
+            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id");
             return View();
         }
 
@@ -123,15 +123,15 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
-            //    "Id", "Nombre", grupo.CiudadesId);
-            //ViewData["GenerosId"] = new SelectList(_context.Generos,
-            //    "Id", "Nombre", grupo.GenerosId);
-            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
-            //    "Id", "NombreCompleto", grupo.RepresentantesId);
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", grupo.CiudadesId);
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", grupo.GenerosId);
-            ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id", grupo.RepresentantesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", grupo.CiudadesId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", grupo.GenerosId);
+            ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
+                "Id", "NombreCompleto", grupo.RepresentantesId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", grupo.CiudadesId);
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", grupo.GenerosId);
+            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id", grupo.RepresentantesId);
             return View(grupo);
         }
 
@@ -148,15 +148,15 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
-            //    "Id", "Nombre", grupo.CiudadesId);
-            //ViewData["GenerosId"] = new SelectList(_context.Generos,
-            //    "Id", "Nombre", grupo.GenerosId);
-            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
-            //    "Id", "NombreCompleto", grupo.RepresentantesId);
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", grupo.CiudadesId);
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", grupo.GenerosId);
-            ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id", grupo.RepresentantesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", grupo.CiudadesId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", grupo.GenerosId);
+            ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
+                "Id", "NombreCompleto", grupo.RepresentantesId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", grupo.CiudadesId);
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", grupo.GenerosId);
+            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id", grupo.RepresentantesId);
             return View(grupo);
         }
 
@@ -192,15 +192,15 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
-            //    "Id", "Nombre", grupo.CiudadesId);
-            //ViewData["GenerosId"] = new SelectList(_context.Generos,
-            //    "Id", "Nombre", grupo.GenerosId);
-            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
-            //    "Id", "NombreCompleto", grupo.RepresentantesId);
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", grupo.CiudadesId);
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", grupo.GenerosId);
-            ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id", grupo.RepresentantesId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", grupo.CiudadesId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", grupo.GenerosId);
+            ViewData["RepresentantesId"] = new SelectList(_context.Representantes,
+                "Id", "NombreCompleto", grupo.RepresentantesId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", grupo.CiudadesId);
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", grupo.GenerosId);
+            //ViewData["RepresentantesId"] = new SelectList(_context.Representantes, "Id", "Id", grupo.RepresentantesId);
             return View(grupo);
         }
 
