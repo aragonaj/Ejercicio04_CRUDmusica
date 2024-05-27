@@ -9,7 +9,7 @@
 <div class="contenedor contenedor-nuevoRegistro">
     <div class="contenedor-formulario">
         <form class="formulario" asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="divValidation"></div>
+            <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
             <div class="contenedor-campoFormulario">
                 <label asp-for="PlataformasId" class="label"></label>
                 <select asp-for="PlataformasId" class ="input" asp-items="ViewBag.PlataformasId"></select>
@@ -21,7 +21,7 @@
             <div class="contenedor-campoFormulario">
                 <label asp-for="Url" class="label"></label>
                 <input asp-for="Url" class="input" />
-                <span asp-validation-for="Url" class="span"></span>
+                <span asp-validation-for="Url" class="textoValidacion"></span>
             </div>
             <div class="contenedor-submit">
                 <input type="submit" value="Create" class="submit" />

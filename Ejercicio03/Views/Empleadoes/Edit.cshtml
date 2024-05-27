@@ -4,34 +4,32 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Empleado</h4>
+<h3 class="titulo">Editar registro</h3>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="contenedor contenedor-nuevoRegistro">
+    <div class="contenedor-formulario">
+        <form class="formulario" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NombreCompleto" class="control-label"></label>
-                <input asp-for="NombreCompleto" class="form-control" />
-                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            <div class="contenedor-campoFormulario">
+                <label asp-for="NombreCompleto" class="label"></label>
+                <input asp-for="NombreCompleto" class="input" />
+                <span asp-validation-for="NombreCompleto" class="textoValidacion"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="RolesId" class="control-label"></label>
-                <select asp-for="RolesId" class="form-control" asp-items="ViewBag.RolesId"></select>
-                <span asp-validation-for="RolesId" class="text-danger"></span>
+            <div class="contenedor-campoFormulario">
+                <label asp-for="RolesId" class="label"></label>
+                <select asp-for="RolesId" class="input" asp-items="ViewBag.RolesId"></select>
+                <span asp-validation-for="RolesId" class="textoValidacion"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="contenedor-submit">
+                <input type="submit" value="Guardar registro" class="submit" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="contenedor-campoFormulario back">
+    <a class="back-link" asp-action="Index">Volver a la tabla -></a>
 </div>
 
 @section Scripts {

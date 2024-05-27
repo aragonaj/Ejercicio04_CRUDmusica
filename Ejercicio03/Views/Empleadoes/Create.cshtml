@@ -9,11 +9,11 @@
 <div class="contenedor contenedor-nuevoRegistro">
     <div class="contenedor-formulario">
         <form class="formulario" asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="divValidation"></div>
+            <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
             <div class="contenedor-campoFormulario">
                 <label asp-for="NombreCompleto" class="label"></label>
                 <input asp-for="NombreCompleto" class="input" />
-                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+                <span asp-validation-for="NombreCompleto" class="textoValidacion"></span>
             </div>
             <div class="contenedor-campoFormulario">
                 <label asp-for="RolesId" class="label"></label>
