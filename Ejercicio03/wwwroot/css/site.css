@@ -198,6 +198,7 @@ a{
 }
 
 .creacion {
+    vertical-align: middle;
     position: relative;
     height: 2em;
     margin: 1em 0;
@@ -208,6 +209,7 @@ a{
 .creacion-link {
     margin-left: 0.65em;
     vertical-align: middle;
+    font-size: 22px;
     font-weight: 500;
     font-family: "Dosis", sans-serif;
     color: #f1f3f4 !important;
@@ -221,7 +223,7 @@ a{
     background-color: #f4f5f6;
 }
 
-.contenedor-nuevoRegistro{
+/*.contenedor-nuevoRegistro{
     display: block;
     width: 45vw;
     height: 50vh;
@@ -230,7 +232,7 @@ a{
     border: 2px solid #022c5f;
     border-radius: 20px;
     color: #022c5f;
-}
+}*/
 
 .formulario {
 }
@@ -257,11 +259,10 @@ a{
 }
 
 .submit {
-    display: block;
-    margin: 2em auto;
+    margin: 1em 1.5em;
     vertical-align: middle;
-    width: 90%;
-    height: 3em;
+    width: 50%;
+    height: 2em;
     border: 1px solid #022c5f;
     border-radius: 20px;
     font-size: 20px;
