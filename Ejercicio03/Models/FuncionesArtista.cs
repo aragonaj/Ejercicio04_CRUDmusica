@@ -6,15 +6,13 @@ namespace Ejercicio03.Models;
 
 public partial class FuncionesArtista
 {
-    [Required(ErrorMessage = "Este campo es obligatorio")]
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "Este campo es obligatorio")]
     public int? FuncionesId { get; set; }
 
-    [Required(ErrorMessage = "Este campo es obligatorio")]
-    [StringLength(50, ErrorMessage = "Se excedió el número de caracteres permitido")]
-    [Display(Name = "Artista")]
+    //[Required(ErrorMessage = "Este campo es obligatorio")]
+    //[StringLength(50, ErrorMessage = "Se excedió el número de caracteres permitido")]
+    //[Display(Name = "Artista")]
     public int? ArtistasId { get; set; }
 
     public virtual Artista? Artistas { get; set; }

@@ -10,11 +10,12 @@
     <div class="contenedor-formulario">
         <form class="formulario" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
-            <div class="contenedor-campoFormulario">
+            <input type="hidden" asp-for="Id" />
+            @* <div class="contenedor-campoFormulario">
                 <label asp-for="Id" class="label"></label>
                 <input asp-for="Id" class="input" />
                 <span asp-validation-for="Id" class="textoValidacion"></span>
-            </div>
+            </div> *@
             <div class="contenedor-campoFormulario">
                 <label asp-for="FuncionesId" class="label"></label>
                 <select asp-for="FuncionesId" class ="input" asp-items="ViewBag.FuncionesId"></select>
