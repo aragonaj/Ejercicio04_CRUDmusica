@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ejercicio03.Models;
+using Microsoft.CodeAnalysis;
 
 namespace Ejercicio03.Controllers
 {
@@ -19,8 +20,21 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Plataformas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //var plataformas = from plataforma in _context.Plataformas
+            //             select plataforma;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        plataformas = plataformas.OrderByDescending(plataforma => plataforma.Nombre);
+            //        break;
+            //    default:
+            //        plataformas = plataformas.OrderBy(plataforma => plataforma.Nombre);
+            //        break;
+            //}
+            //return View(await plataformas.AsNoTracking().ToListAsync());
             return View(await _context.Plataformas.ToListAsync());
         }
 

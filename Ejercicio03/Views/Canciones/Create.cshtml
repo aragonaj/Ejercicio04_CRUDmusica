@@ -4,44 +4,41 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Cancione</h4>
+<h3 class="titulo">Crear nuevo registro</h3>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
-                <span asp-validation-for="Titulo" class="text-danger"></span>
+<div class="contenedor contenedor-nuevoRegistro">
+    <div class="contenedor-formulario">
+        <form class="formulario" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
+            <div class="contenedor-campoFormulario">
+                <label asp-for="Titulo" class="label"></label>
+                <input asp-for="Titulo" class="input" />
+                <span asp-validation-for="Titulo" class="textoValidacion"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Duracion" class="control-label"></label>
-                <input asp-for="Duracion" class="form-control" />
-                <span asp-validation-for="Duracion" class="text-danger"></span>
+            <div class="contenedor-campoFormulario">
+                <label asp-for="Duracion" class="label"></label>
+                <input asp-for="Duracion" class="input" />
+                <span asp-validation-for="Duracion" class="textoValidacion"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="AlbumesId" class="control-label"></label>
-                <select asp-for="AlbumesId" class ="form-control" asp-items="ViewBag.AlbumesId"></select>
+            <div class="contenedor-campoFormulario">
+                <label asp-for="AlbumesId" class="label"></label>
+                <select asp-for="AlbumesId" class ="input" asp-items="ViewBag.AlbumesId"></select>
             </div>
-            <div class="form-group form-check">
+            <div class="contenedor-campoFormulario form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Single" /> @Html.DisplayNameFor(model => model.Single)
                 </label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="contenedor-submit">
+                <input type="submit" value="Create" class="submit" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="contenedor-campoFormulario back">
+    <a class="back-link" asp-action="Index">Volver a la tabla -></a>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

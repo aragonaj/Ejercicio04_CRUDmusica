@@ -19,8 +19,28 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Empleadoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["NombreCompleto"] = String.IsNullOrEmpty(sortOrder) ? "NombreCompleto" : "";
+            //ViewData["Roles"] = sortOrder == "Roles" ? "Roles_desc" : "Roles";
+            //var empleados = from empleado in _context.Empleados.Include(e => e.Roles)
+            //                select empleado;
+            //switch (sortOrder)
+            //{
+            //    case "NombreCompleto":
+            //        empleados = empleados.OrderByDescending(empleado => empleado.NombreCompleto);
+            //        break;
+            //    case "Roles":
+            //        empleados = empleados.OrderByDescending(empleado => empleado.Roles);
+            //        break;
+            //    case "Roles_desc":
+            //        empleados = empleados.OrderByDescending(empleado => empleado.Roles);
+            //        break;
+            //    default:
+            //        empleados = empleados.OrderBy(concierto => concierto.NombreCompleto);
+            //        break;
+            //}
+            //return View(await empleados.AsNoTracking().ToListAsync());
             var grupoBContext = _context.Empleados.Include(e => e.Roles);
             return View(await grupoBContext.ToListAsync());
         }
@@ -47,7 +67,9 @@ namespace Ejercicio03.Controllers
         // GET: Empleadoes/Create
         public IActionResult Create()
         {
-            ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id");
+            ViewData["RolesId"] = new SelectList(_context.Roles,
+                "Id", "Descripcion");
+            //ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id");
             return View();
         }
 
@@ -83,7 +105,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
+            ViewData["RolesId"] = new SelectList(_context.Roles,
+                "Id", "Descripcion", empleado.RolesId);
+            //ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
             return View(empleado);
         }
 
@@ -119,7 +143,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
+            ViewData["RolesId"] = new SelectList(_context.Roles,
+                "Id", "Descripcion", empleado.RolesId);
+            //ViewData["RolesId"] = new SelectList(_context.Roles, "Id", "Id", empleado.RolesId);
             return View(empleado);
         }
 

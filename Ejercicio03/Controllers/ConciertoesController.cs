@@ -19,8 +19,42 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Conciertoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Fecha"] = String.IsNullOrEmpty(sortOrder) ? "Fecha" : "";
+            //ViewData["Direccion"] = sortOrder == "Direccion" ? "Direccion_desc" : "Direccion";
+            //ViewData["Ciudades"] = sortOrder == "Ciudades" ? "Ciudades_desc" : "Ciudades";
+            //ViewData["Giras"] = sortOrder == "Giras" ? "Giras_desc" : "Giras";
+            //var conciertos = from concierto in _context.Conciertos.Include(c => c.Ciudades).Include(c => c.Giras)
+            //                 select concierto;
+            //switch (sortOrder)
+            //{
+            //    case "Fecha":
+            //        conciertos = conciertos.OrderByDescending(concierto => concierto.Fecha);
+            //        break;
+            //    case "Direccion":
+            //        conciertos = conciertos.OrderBy(concierto => concierto.Direccion);
+            //        break;
+            //    case "Direccion_desc":
+            //        conciertos = conciertos.OrderByDescending(concierto => concierto.Direccion);
+            //        break;
+            //    case "Ciudades":
+            //        conciertos = conciertos.OrderBy(concierto => concierto.Ciudades);
+            //        break;
+            //    case "Ciudades_desc":
+            //        conciertos = conciertos.OrderByDescending(concierto => concierto.Ciudades);
+            //        break;
+            //    case "Giras":
+            //        conciertos = conciertos.OrderBy(concierto => concierto.Giras);
+            //        break;
+            //    case "Giras_desc":
+            //        conciertos = conciertos.OrderByDescending(concierto => concierto.Giras);
+            //        break;
+            //    default:
+            //        conciertos = conciertos.OrderBy(concierto => concierto.Fecha);
+            //        break;
+            //}
+            //return View(await conciertos.AsNoTracking().ToListAsync());
             var grupoBContext = _context.Conciertos.Include(c => c.Ciudades).Include(c => c.Giras);
             return View(await grupoBContext.ToListAsync());
         }
@@ -70,8 +104,12 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
-            ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.CiudadesId);
+            ViewData["GirasId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.GirasId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
+            //ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
             return View(concierto);
         }
 
@@ -88,8 +126,12 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
-            ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.CiudadesId);
+            ViewData["GirasId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.GirasId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
+            //ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
             return View(concierto);
         }
 
@@ -125,8 +167,12 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
-            ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.CiudadesId);
+            ViewData["GirasId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", concierto.GirasId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", concierto.CiudadesId);
+            //ViewData["GirasId"] = new SelectList(_context.Giras, "Id", "Id", concierto.GirasId);
             return View(concierto);
         }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ejercicio03.Models;
+using Microsoft.Data.SqlClient;
 
 namespace Ejercicio03.Controllers
 {
@@ -19,8 +20,21 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Generoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //var generos = from genero in _context.Generos
+            //                select genero;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        generos = generos.OrderByDescending(genero => genero.Nombre);
+            //        break;
+            //    default:
+            //        generos = generos.OrderBy(genero => genero.Nombre);
+            //        break;
+            //}
+            //return View(await generos.ToListAsync());
             return View(await _context.Generos.ToListAsync());
         }
 

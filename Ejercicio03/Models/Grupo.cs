@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ejercicio03.Models;
 
 public partial class Grupo
 {
+    [Required(ErrorMessage = "Este campo es obligatorio")]
     public int Id { get; set; }
 
+    //[Required(ErrorMessage = "Este campo es obligatorio")]
+    [StringLength(50, ErrorMessage = "Se excedió el número de caracteres permitido")]
     public string? Nombre { get; set; }
 
+    [Required(ErrorMessage = "Este campo es obligatorio")]
+    [Display(Name = "Miembro del grupo")]
     public bool Grupo1 { get; set; }
 
     public DateOnly? FechaCreacion { get; set; }
 
+    [Display(Name = "Ciudad")]
     public int? CiudadesId { get; set; }
 
+    [Display(Name = "Representante")]
     public int? RepresentantesId { get; set; }
 
+    [Display(Name = "Género")]
     public int? GenerosId { get; set; }
 
     public virtual ICollection<Albume> Albumes { get; set; } = new List<Albume>();

@@ -4,29 +4,27 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Plataforma</h4>
+<h3 class="titulo">Editar registro</h3>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="contenedor contenedor-nuevoRegistro">
+    <div class="contenedor-formulario">
+        <form class="formulario" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+            <div class="contenedor-campoFormulario">
+                <label asp-for="Nombre" class="label"></label>
+                <input asp-for="Nombre" class="input" />
+                <span asp-validation-for="Nombre" class="textoValidacion"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="contenedor-submit">
+                <input type="submit" value="Guardar registro" class="submit" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="contenedor-campoFormulario back">
+    <a class="back-link" asp-action="Index">Volver a la tabla -></a>
 </div>
 
 @section Scripts {

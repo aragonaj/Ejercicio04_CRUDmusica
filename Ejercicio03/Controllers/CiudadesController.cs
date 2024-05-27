@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ejercicio03.Models;
+using Microsoft.Data.SqlClient;
 
 namespace Ejercicio03.Controllers
 {
@@ -19,8 +20,28 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Ciudades
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["Paises"] = sortOrder == "Paises" ? "Paises_desc" : "Paises";
+            //var ciudades = from ciudad in _context.Ciudades.Include(c => c.Paises)
+            //               select ciudad;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        ciudades = ciudades.OrderByDescending(ciudad => ciudad.Nombre);
+            //        break;
+            //    case "Paises":
+            //        ciudades = ciudades.OrderBy(ciudad => ciudad.Paises);
+            //        break;
+            //    case "Paises_desc":
+            //        ciudades = ciudades.OrderByDescending(ciudad => ciudad.Paises);
+            //        break;
+            //    default:
+            //        ciudades = ciudades.OrderBy(ciudad => ciudad.Nombre);
+            //        break;
+            //}
+            //return View(await ciudades.AsNoTracking().ToListAsync());
             var grupoBContext = _context.Ciudades.Include(c => c.Paises);
             return View(await grupoBContext.ToListAsync());
         }
@@ -70,7 +91,9 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PaisesId"] = new SelectList(_context.Paises, "Id", "Id", ciudade.PaisesId);
+            ViewData["PaisesId"] = new SelectList(_context.Paises,
+                "Id", "Nombre", ciudade.PaisesId);
+            //ViewData["PaisesId"] = new SelectList(_context.Paises, "Id", "Id", ciudade.PaisesId);
             return View(ciudade);
         }
 
@@ -87,7 +110,9 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["PaisesId"] = new SelectList(_context.Paises, "Id", "Id", ciudade.PaisesId);
+            ViewData["PaisesId"] = new SelectList(_context.Paises,
+                "Id", "Nombre", ciudade.PaisesId);
+            //ViewData["PaisesId"] = new SelectList(_context.Paises, "Id", "Id", ciudade.PaisesId);
             return View(ciudade);
         }
 
@@ -123,7 +148,9 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PaisesId"] = new SelectList(_context.Paises, "Id", "Id", ciudade.PaisesId);
+            ViewData["PaisesId"] = new SelectList(_context.Paises,
+                "Id", "Nombre", ciudade.PaisesId);
+            //ViewData["PaisesId"] = new SelectList(_context.Paises, "Id", "Id", ciudade.PaisesId);
             return View(ciudade);
         }
 

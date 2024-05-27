@@ -4,36 +4,49 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<h3 class="titulo">Representantes</h3>
+
+<p class="creacion">
+    <a class="creacion-link" asp-action="Create">Crear registro</a>
 </p>
-<table class="table">
+<table class="tabla" id="datatableCheating">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.NombreCompleto)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["NombreCompleto"]">@Html.DisplayNameFor(model => model.NombreCompleto)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechaNacimiento)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["FechaNacimiento"]">@Html.DisplayNameFor(model => model.FechaNacimiento)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Identificacion)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Identificacion"]">@Html.DisplayNameFor(model => model.Identificacion)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Mail)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Mail"]">@Html.DisplayNameFor(model => model.Mail)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Telefono)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Telefono"]">@Html.DisplayNameFor(model => model.Telefono)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ciudades)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Ciudades"]">@Html.DisplayNameFor(model => model.Ciudades)</a> *@
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody">
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -52,7 +65,7 @@
                 @Html.DisplayFor(modelItem => item.Telefono)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ciudades.Id)
+                @Html.DisplayFor(modelItem => item.Ciudades.Nombre)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

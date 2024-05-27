@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ejercicio03.Models;
+using Microsoft.Data.SqlClient;
 
 namespace Ejercicio03.Controllers
 {
@@ -19,8 +20,42 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Albumes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["Fecha"] = sortOrder == "Fecha" ? "Fecha_desc" : "Fecha";
+            //ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
+            //ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
+            //var albumes = from album in _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos)
+            //              select album;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        albumes = albumes.OrderByDescending(album => album.Nombre);
+            //        break;
+            //    case "Fecha":
+            //        albumes = albumes.OrderBy(album => album.Fecha);
+            //        break;
+            //    case "Fecha_desc":
+            //        albumes = albumes.OrderByDescending(album => album.Fecha);
+            //        break;
+            //    case "GenerosId":
+            //        albumes = albumes.OrderBy(album => album.GenerosId);
+            //        break;
+            //    case "GenerosId_desc":
+            //        albumes = albumes.OrderByDescending(album => album.GenerosId);
+            //        break;
+            //    case "GruposId":
+            //        albumes = albumes.OrderBy(album => album.GruposId);
+            //        break;
+            //    case "GruposId_desc":
+            //        albumes = albumes.OrderByDescending(album => album.GruposId);
+            //        break;
+            //    default:
+            //        albumes = albumes.OrderBy(album => album.Nombre);
+            //        break;
+            //}
+            //return View(await albumes.AsNoTracking().ToListAsync());
             var grupoBContext = _context.Albumes.Include(a => a.Generos).Include(a => a.Grupos);
             return View(await grupoBContext.ToListAsync());
         }
@@ -48,8 +83,12 @@ namespace Ejercicio03.Controllers
         // GET: Albumes/Create
         public IActionResult Create()
         {
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id");
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre");
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre"); //"Canciones"
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id");
             return View();
         }
 
@@ -66,8 +105,12 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", albume.GenerosId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", albume.GruposId); //"Canciones"
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
             return View(albume);
         }
 
@@ -84,8 +127,12 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre");
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre"); //"Canciones"
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
             return View(albume);
         }
 
@@ -121,8 +168,12 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", albume.GenerosId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", albume.GruposId); //"Canciones"
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", albume.GenerosId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", albume.GruposId);
             return View(albume);
         }
 

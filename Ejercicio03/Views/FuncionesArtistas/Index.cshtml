@@ -4,36 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h3 class="titulo">Funciones de los artistas</h3>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="creacion">
+    <a class="creacion-link" asp-action="Create">Crear registro</a>
 </p>
-<table class="table">
+<table class="tabla" id="datatableCheating">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Artistas)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Artistas"]">@Html.DisplayNameFor(model => model.Artistas)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Funciones)
+                @* <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["Funciones"]">@Html.DisplayNameFor(model => model.Funciones)</a> *@
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody">
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Artistas.Id)
+                @Html.DisplayFor(modelItem => item.Artistas.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Funciones.Id)
+                @Html.DisplayFor(modelItem => item.Funciones.Nombre)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="action" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="action" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="action" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

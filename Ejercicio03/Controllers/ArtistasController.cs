@@ -19,8 +19,51 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Artistas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //ViewData["FechaDeNacimiento"] = sortOrder == "FechaDeNacimiento" ? "FechaDeNacimiento_desc" : "FechaDeNacimiento";
+            //ViewData["CiudadesId"] = sortOrder == "CiudadesId" ? "CiudadesId_desc" : "CiudadesId";
+            //ViewData["GenerosId"] = sortOrder == "GenerosId" ? "GenerosId_desc" : "GenerosId";
+            //ViewData["GruposId"] = sortOrder == "GruposId" ? "GruposId_desc" : "GruposId";
+            //var artistas = from artista in _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos)
+            //               select artista;
+
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        artistas = artistas.OrderByDescending(artista => artista.Nombre);
+            //        break;
+            //    case "FechaDeNacimiento":
+            //        artistas = artistas.OrderBy(artista => artista.FechaDeNacimiento);
+            //        break;
+            //    case "FechaDeNacimiento_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.FechaDeNacimiento);
+            //        break;
+            //    case "CiudadesId":
+            //        artistas = artistas.OrderBy(artista => artista.CiudadesId);
+            //        break;
+            //    case "CiudadesId_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.CiudadesId);
+            //        break;
+            //    case "GenerosId":
+            //        artistas = artistas.OrderBy(artista => artista.GenerosId);
+            //        break;
+            //    case "GenerosId_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.GenerosId);
+            //        break;
+            //    case "GruposId":
+            //        artistas = artistas.OrderBy(artista => artista.GruposId);
+            //        break;
+            //    case "GruposId_desc":
+            //        artistas = artistas.OrderByDescending(artista => artista.GruposId);
+            //        break;
+            //    default:
+            //        artistas = artistas.OrderBy(artista => artista.Nombre);
+            //        break;
+            //}
+
+            //return View(await artistas.AsNoTracking().ToListAsync());
             var grupoBContext = _context.Artistas.Include(a => a.Ciudades).Include(a => a.Generos).Include(a => a.Grupos);
             return View(await grupoBContext.ToListAsync());
         }
@@ -49,9 +92,15 @@ namespace Ejercicio03.Controllers
         // GET: Artistas/Create
         public IActionResult Create()
         {
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id");
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id");
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre");
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre");
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre");
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id");
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id");
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id");
             return View();
         }
 
@@ -68,9 +117,15 @@ namespace Ejercicio03.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", artista.CiudadesId);
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", artista.GenerosId);
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", artista.GruposId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", artista.CiudadesId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", artista.GenerosId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", artista.GruposId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", artista.CiudadesId);
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", artista.GenerosId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", artista.GruposId);
             return View(artista);
         }
 
@@ -87,9 +142,15 @@ namespace Ejercicio03.Controllers
             {
                 return NotFound();
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", artista.CiudadesId);
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", artista.GenerosId);
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", artista.GruposId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", artista.CiudadesId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", artista.GenerosId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", artista.GruposId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", artista.CiudadesId);
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", artista.GenerosId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", artista.GruposId);
             return View(artista);
         }
 
@@ -125,9 +186,15 @@ namespace Ejercicio03.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", artista.CiudadesId);
-            ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", artista.GenerosId);
-            ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", artista.GruposId);
+            ViewData["CiudadesId"] = new SelectList(_context.Ciudades,
+                "Id", "Nombre", artista.CiudadesId);
+            ViewData["GenerosId"] = new SelectList(_context.Generos,
+                "Id", "Nombre", artista.GenerosId);
+            ViewData["GruposId"] = new SelectList(_context.Grupos,
+                "Id", "Nombre", artista.GruposId);
+            //ViewData["CiudadesId"] = new SelectList(_context.Ciudades, "Id", "Id", artista.CiudadesId);
+            //ViewData["GenerosId"] = new SelectList(_context.Generos, "Id", "Id", artista.GenerosId);
+            //ViewData["GruposId"] = new SelectList(_context.Grupos, "Id", "Id", artista.GruposId);
             return View(artista);
         }
 

@@ -19,8 +19,21 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Paises
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Nombre"] = String.IsNullOrEmpty(sortOrder) ? "Nombre" : "";
+            //var paises = from pais in _context.Paises
+            //                 select pais;
+            //switch (sortOrder)
+            //{
+            //    case "Nombre":
+            //        paises = paises.OrderByDescending(pais => pais.Nombre);
+            //        break;
+            //    default:
+            //        paises = paises.OrderBy(pais => pais.Nombre);
+            //        break;
+            //}
+            //return View(await paises.AsNoTracking().ToListAsync());
             return View(await _context.Paises.ToListAsync());
         }
 

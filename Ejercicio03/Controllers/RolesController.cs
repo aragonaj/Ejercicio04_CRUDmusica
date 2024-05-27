@@ -19,8 +19,21 @@ namespace Ejercicio03.Controllers
         }
 
         // GET: Roles
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            //ViewData["Descripcion"] = String.IsNullOrEmpty(sortOrder) ? "Descripcion" : "";
+            //var roles = from rol in _context.Roles
+            //            select rol;
+            //switch (sortOrder)
+            //{
+            //    case "Descripcion":
+            //        roles = roles.OrderByDescending(rol => rol.Descripcion);
+            //        break;
+            //    default:
+            //        roles = roles.OrderBy(rol => rol.Descripcion);
+            //        break;
+            //}
+            //return View(await roles.AsNoTracking().ToListAsync());
             return View(await _context.Roles.ToListAsync());
         }
 

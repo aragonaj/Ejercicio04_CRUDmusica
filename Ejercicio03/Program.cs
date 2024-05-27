@@ -1,6 +1,17 @@
+// WEBGRAFÍA
+// https://www.youtube.com/watch?v=WplklpczJX8 
+// https://www.youtube.com/watch?v=U0zYxZ6OzDM -JQuery
+
 //--no-pluralize
 //--use-Database-name
 //--force
+
+//[ModelMetadataType(Typeof(NombreModelo))]
+//public partial class NombreModelo
+//se copia el documento NombreModelo
+
+// La tabla álbumes da fallo al no haberla actualizado
+// La creación de una nueva función de un miembro de la banda ("Create new - Funciones artista") da error
 
 using Microsoft.EntityFrameworkCore.Storage;
 
