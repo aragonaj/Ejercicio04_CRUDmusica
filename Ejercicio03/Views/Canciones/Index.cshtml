@@ -1,42 +1,43 @@
 ﻿@model IEnumerable<Ejercicio03.Models.Cancione>
 
 @{
-    ViewData["Title"] = "Index";
+ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<h3 class="titulo">Canciones</h3>
+
+<p class="creacion">
+    <a class="creacion-link" asp-action="Create">Crear registro</a>
 </p>
-<table class="table table-hover table-sm" id="datatableCheating">
+<table class="tabla" id="datatableCheating">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
                 @* <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Titulo"]">@Html.DisplayNameFor(model => model.Titulo)</a> *@
+                    asp-route-sortOrder="@ViewData["Titulo"]">@Html.DisplayNameFor(model => model.Titulo)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Duracion)
                 @* <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Duracion"]">@Html.DisplayNameFor(model => model.Duracion)</a> *@
+                    asp-route-sortOrder="@ViewData["Duracion"]">@Html.DisplayNameFor(model => model.Duracion)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Single)
                 @* <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Single"]">@Html.DisplayNameFor(model => model.Single)</a> *@
+                    asp-route-sortOrder="@ViewData["Single"]">@Html.DisplayNameFor(model => model.Single)</a> *@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Albumes)
                 @* <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["Albumes"]">@Html.DisplayNameFor(model => model.Albumes)</a> *@
+                    asp-route-sortOrder="@ViewData["Albumes"]">@Html.DisplayNameFor(model => model.Albumes)</a> *@
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
+    <tbody class="tbody">
+        @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
@@ -58,4 +59,4 @@
         </tr>
 }
     </tbody>
-</table>
+    </table>

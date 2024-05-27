@@ -4,12 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<h3 class="titulo">Grupos</h3>
+
+<p class="creacion">
+    <a class="creacion-link" asp-action="Create">Crear registro</a>
 </p>
-<table class="table table-hover table-sm" id="datatableCheating">
+<table class="tabla" id="datatableCheating">
     <thead>
         <tr>
             <th>
@@ -45,7 +46,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody">
 @foreach (var item in Model) {
         <tr>
             <td>
