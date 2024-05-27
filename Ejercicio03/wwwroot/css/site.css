@@ -287,7 +287,11 @@ a{
     text-decoration: underline;
 }
 
-#menuLateral{
+.textoValidacion{
+    color: #a6051a;
+}
+
+#menuLateral {
     width: 20vw;
     height: 100vh;
     padding: 1em 2em;

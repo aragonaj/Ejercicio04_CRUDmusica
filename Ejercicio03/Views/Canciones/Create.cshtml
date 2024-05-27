@@ -9,16 +9,16 @@
 <div class="contenedor contenedor-nuevoRegistro">
     <div class="contenedor-formulario">
         <form class="formulario" asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="divValidation"></div>
+            <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
             <div class="contenedor-campoFormulario">
                 <label asp-for="Titulo" class="label"></label>
                 <input asp-for="Titulo" class="input" />
-                <span asp-validation-for="Titulo" class="span"></span>
+                <span asp-validation-for="Titulo" class="textoValidacion"></span>
             </div>
             <div class="contenedor-campoFormulario">
                 <label asp-for="Duracion" class="label"></label>
                 <input asp-for="Duracion" class="input" />
-                <span asp-validation-for="Duracion" class="span"></span>
+                <span asp-validation-for="Duracion" class="textoValidacion"></span>
             </div>
             <div class="contenedor-campoFormulario">
                 <label asp-for="AlbumesId" class="label"></label>

@@ -17,7 +17,6 @@ public partial class Grupo
     [Display(Name = "Miembro del grupo")]
     public bool Grupo1 { get; set; }
 
-    [Display(Name = "Fecha de creación")]
     public DateOnly? FechaCreacion { get; set; }
 
     [Display(Name = "Ciudad")]

@@ -10,7 +10,7 @@
     <div class="contenedor-formulario">
         <form class="formulario" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="textoValidacion"></div>
-            <div class="form-group">
+            <div class="contenedor-campoFormulario">
                 <label asp-for="GirasId" class="label"></label>
                 <select asp-for="GirasId" class ="input" asp-items="ViewBag.GirasId"></select>
             </div>
