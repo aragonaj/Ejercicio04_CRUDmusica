@@ -42,10 +42,6 @@ body {
     background-color: #f1f3f4;
 }
 
-table {
-    border-collapse: collapse;
-}
-
 td {
     font-size: 18px;
     font-weight: 500;
@@ -63,19 +59,30 @@ hr{
     width: 100vw;
 }
 
-.main{
+.main {
     position: fixed;
-    top: 70px;
+    top: 4em;
     width: 100vw;
-    height: auto;
+}
+
+.footer {
+    position: relative;
+    width: 100vw;
+    height: 3.8em;
+    display: flex;
+    justify-content: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+    background-color: #039203;
+    color: #f1f3f4;
 }
 
 .header-content {
     display: flex;
-    align-self: center;
+    width: 100%;
+    min-height: 4em;
+    padding: 1em 5em;
     justify-content: space-between;
-    padding: 1em 10em;
-    min-height: 70px;
     background-color: #fdd604;
     font-family: "Josefin Sans", sans-serif;
 }
@@ -86,8 +93,12 @@ hr{
     font-size: 20px;
 }
 
-.nav{
-    transition: all 0.3s ease-in-out;
+.nav {
+    transition: all 0.75s ease-in-out;
+}
+
+.cortinilla {
+    transition: all 0.75s ease-in-out;
 }
 
 .nav__list{
@@ -124,11 +135,15 @@ hr{
     background-color: #022c5f;
 }
 
-.nav--open{
+.nav--open {
     transform: translate(0) !important;
 }
 
-.hamburguer--open .bar:nth-child(1){
+.cortinilla--open {
+    transform: translate(0) !important;
+}
+
+.hamburguer--open .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
 
@@ -157,6 +172,12 @@ a{
 
 .seccion{
     display: inline-block;
+}
+
+.contenido-main {
+    position: absolute;
+    width: 80vw;
+    padding: 0.5em 2em;
 }
 
 .span {
@@ -305,14 +326,6 @@ a{
     background-color: #022c5f;
 }
 
-#contenido-main {
-    position: fixed;
-    width: 80vw;
-    height: 100vh;
-    padding: 0.5em 2em;
-    overflow: scroll;
-}
-
 #navLat {
     margin-top: 1em;
     padding: 0.5em 1em;
@@ -326,30 +339,55 @@ a{
 
 #contenido-main{
     padding: 1em 1em;
+    z-index: -1;
 }
 
-@media (max-width:768px) {
+#privacy-link{
+    opacity: 0.8;
+    color: #f1f3f4;
+}
+
+@media (max-width:1162px) {
     .nav {
         position: fixed;
-        top: 70px;
+        top: 4em;
         left: 0;
         background-color: #022c5f;
+        height: 100vh;
         width: 100%;
         padding: 10px 0 25px;
         transform: translateX(-100%);
+        z-index: 1 !important;
     }
 
-    .nav__list{
+    .cortinilla {
+        position: fixed;
+        top: 3em;
+        left: 0;
+        background-color: #022c5f;
+        height: 100vh;
+        width: 20%;
+        transform: translateX(-100%);
+        z-index: 1 !important;
+    }
+
+    .nav__list {
         flex-direction: column;
         align-items: center;
         row-gap: 20px;
     }
 
-    .nav__link{
+    .nav__link {
         font-size: 14px;
+        color: #f1f3f4;
     }
 
-    .hamburguer{
+    .hamburguer {
         display: block;
+    }
+
+    #titulo-latMenu,
+    .contenedor-menuLateral hr {
+        display: none;
     }
 }
