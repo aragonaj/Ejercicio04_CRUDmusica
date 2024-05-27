@@ -47,6 +47,7 @@ table {
 }
 
 td {
+    font-size: 18px;
     font-weight: 500;
     font-family: "Slabo 27px", serif;
     color: #022c5f;
@@ -292,6 +293,11 @@ a{
     color: #a6051a;
 }
 
+.action {
+    font-size: 18px;
+    font-family: "Dosis", sans-serif;
+}
+
 #menuLateral {
     width: 20vw;
     height: 100vh;
@@ -299,10 +305,12 @@ a{
     background-color: #022c5f;
 }
 
-#contenido-main{
+#contenido-main {
     position: fixed;
     width: 80vw;
+    height: 100vh;
     padding: 0.5em 2em;
+    overflow: scroll;
 }
 
 #navLat {
